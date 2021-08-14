@@ -1,1 +1,83 @@
-<p>sidenav works!</p>
+<section class="sidenav d-flex flex-column">
+  <div class="logo mx-auto p-xl-3 p-lg-3 p-md-2 p-1">
+    <a routerLink="/home">
+      <img
+        src="./../../../../assets/logo.png"
+        alt="Techticle Logo"
+        class="w-100 d-block mx-auto"
+      />
+    </a>
+  </div>
+  <div class="sidenav-list pt-2">
+    <a
+      routerLink="/home"
+      routerLinkActive="active"
+      class="
+        sidenav-list__item
+        d-block
+        text-decoration-none text-xl-left
+        d-flex
+        align-items-center
+        justify-content-xl-start justify-content-center
+        px-xl-5
+        py-3
+      "
+    >
+      <i class="fa fa-home pr-lg-2"></i>
+      <span class="d-xl-inline d-none">Home</span>
+    </a>
+    <a
+      routerLink="/explore"
+      routerLinkActive="active"
+      class="
+        sidenav-list__item
+        d-block
+        text-decoration-none text-xl-left
+        d-flex
+        align-items-center
+        justify-content-xl-start justify-content-center
+        px-xl-5
+        py-3
+      "
+    >
+      <i class="fa fa-hashtag pr-lg-2"></i>
+      <span class="d-xl-inline d-none">Explore</span>
+    </a>
+    <a
+      routerLink="/bookmarks"
+      routerLinkActive="active"
+      class="
+        sidenav-list__item
+        d-block
+        text-decoration-none text-xl-left
+        d-flex
+        align-items-center
+        justify-content-xl-start justify-content-center
+        px-xl-5
+        py-3
+      "
+    >
+      <i class="fa fa-bookmark pr-lg-2"></i>
+      <span class="d-xl-inline d-none">Bookmarks</span>
+    </a>
+    <a
+      routerLink="/more"
+      routerLinkActive="active"
+      class="
+        sidenav-list__item
+        d-block
+        text-decoration-none text-xl-left
+        d-flex
+        align-items-center
+        justify-content-xl-start justify-content-center
+        px-xl-5
+        py-3
+      "
+    >
+      <i class="fa fa-ellipsis-h pr-lg-2"></i>
+      <span class="d-xl-inline d-none">More</span>
+    </a>
+  </div>
+
+  <app-article-new-button></app-article-new-button>
+</section>
