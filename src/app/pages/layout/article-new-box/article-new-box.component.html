@@ -1,1 +1,41 @@
-<p>article-new-box works!</p>
+<section class="article-new-box">
+  <form [formGroup]="editorForm">
+    <quill-editor
+      [styles]="{ border: 'none', padding: '0.5rem 0' }"
+      formControlName="editorContent"
+      [placeholder]="'Wanna share something today?'"
+      [customToolbarPosition]="'bottom'"
+      [debounceTime]="200"
+      [minLength]="1"
+      [maxLength]="500"
+      [trimOnValidation]="true"
+      (onContentChanged)="onContentChanged($event)"
+    >
+      <div
+        quill-editor-toolbar
+        [ngStyle]="{ border: 'none', padding: '0 10px' }"
+      >
+        <span class="ql-formats">
+          <button class="ql-blockquote"></button>
+          <button class="ql-code-block"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-link"></button>
+          <button class="ql-image"></button>
+          <button class="ql-video"></button>
+        </span>
+      </div>
+    </quill-editor>
+  </form>
+  <div class="d-flex justify-content-between align-items-center">
+    <span class="content-length-left">{{ contentLength }}</span>
+    <button class="article-submit-btn btn btn-primary" (click)="onSubmit()">
+      Tecko!
+    </button>
+  </div>
+</section>
+<!-- <quill-view
+  [content]="editorForm.controls.editorContent.value"
+  format="html"
+  theme="snow"
+></quill-view> -->
