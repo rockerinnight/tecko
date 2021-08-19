@@ -1,23 +1,14 @@
-/*! `Custom` Bootstrap 5 theme */
+/* Quill Editor CSS */
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+
+/* Custom` Bootstrap theme */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
 @import url(https://fonts.googleapis.com/css?family=Poppins:200,300,400,700);
-$font-family-base: "Poppins", serif;
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script:200,300,400,700);
-$headings-font-family: "Oleo Script", sans-serif;
+@import "./app/shared/variables.scss";
 
-$enable-grid-classes: false;
-$primary: #2f3c48;
-$secondary: #6f7f8c;
-$success: #3e4d59;
-$danger: #cc330d;
-$info: #5c8f94;
-$warning: #6e9fa5;
-$light: #eceeec;
-$dark: #1e2b37;
-$enable-gradients: true;
-$spacer: 1.2rem;
-$border-width: 0;
-$btn-border-radius: 1.35rem;
-$enable-shadows: true;
+/* Bootstrap CSS */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap";

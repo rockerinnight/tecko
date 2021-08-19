@@ -1,0 +1,17 @@
+@import "./../../../shared/variables.scss";
+
+.article-new-box:hover,
+.article-new-box:focus {
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 1px $secondary;
+}
+
+.content-length-left {
+  padding-left: 15px;
+}
+
+.article-submit-btn {
+  margin-right: 15px;
+  margin-bottom: 20px;
+}

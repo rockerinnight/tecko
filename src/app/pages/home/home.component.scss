@@ -1,0 +1,7 @@
+@import "./../../shared/variables.scss";
+
+.main-content {
+  border: 1px solid $secondary;
+  border-top: none;
+  border-bottom: none;
+}

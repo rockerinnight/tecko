@@ -7,6 +7,8 @@ import { ArticleNewBoxComponent } from './article-new-box/article-new-box.compon
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { ArticleNewButtonComponent } from './article-new-button/article-new-button.component';
 import { RouterModule } from '@angular/router';
+import { QuillModule } from 'ngx-quill';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const componentList = [
   SidenavComponent,
@@ -19,7 +21,7 @@ const componentList = [
 
 @NgModule({
   declarations: [...componentList],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, QuillModule],
   exports: [...componentList],
 })
 export class LayoutModule {}
