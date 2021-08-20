@@ -1,0 +1,35 @@
+<section class="profile-card d-flex align-items-end">
+  <div
+    class="dropup w-100"
+    [class.show]="onClick"
+    (click)="toggleDropdown()"
+    (focusout)="onClick = false"
+  >
+    <button
+      class="
+        btn btn-outline-primary
+        w-100
+        d-flex
+        justify-content-xl-between justify-content-center
+        align-items-center
+      "
+    >
+      <div class="d-flex align-items-center">
+        <button class="btn p-0">
+          <img src="./../../../../assets/profile.jpg" alt="Profile Picture" />
+        </button>
+        <div class="d-flex flex-column ml-xl-2">
+          <span class="d-none d-xl-inline align-self-start font-weight-bold">
+            Name
+          </span>
+          <span class="d-none d-xl-inline align-self-start"> @username </span>
+        </div>
+      </div>
+      <i class="fa fa-ellipsis-h d-none d-xl-inline"></i>
+    </button>
+    <button class="w-100 bg-light dropdown-menu" [class.show]="onClick">
+      <a class="dropdown-item" routerLink="/">Settings</a>
+      <a class="dropdown-item" routerLink="/">Log out</a>
+    </button>
+  </div>
+</section>
