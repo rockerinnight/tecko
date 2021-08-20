@@ -1,9 +1,26 @@
+@import "../../../shared/variables.scss";
+
 .sidenav {
+  height: 80vh;
   font-size: 1.2rem;
+
+  button {
+    color: $dark;
+
+    &.active {
+      font-weight: bold;
+      color: $primary;
+    }
+  }
 
   &-list i {
     font-size: 1.5em;
   }
+}
+
+button:hover {
+  color: $light;
+  background-color: rgba(127, 15, 255, 0.5);
 }
 
 @media (max-width: 1199.98px) {
