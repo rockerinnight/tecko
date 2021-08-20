@@ -9,6 +9,7 @@ import { ArticleNewButtonComponent } from './article-new-button/article-new-butt
 import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 const componentList = [
   SidenavComponent,
@@ -17,6 +18,7 @@ const componentList = [
   ArticleNewBoxComponent,
   ArticleItemComponent,
   ArticleNewButtonComponent,
+  ProfileCardComponent,
 ];
 
 @NgModule({

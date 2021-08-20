@@ -3,12 +3,18 @@
 @import "~quill/dist/quill.bubble.css";
 @import "~quill/dist/quill.snow.css";
 
-/* Custom` Bootstrap theme */
+/*! `Custom` Bootstrap 4 theme */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Poppins:200,300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Oleo+Script:200,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Crete+Round:200,300,400,700);
+
 @import "./app/shared/variables.scss";
 
 /* Bootstrap CSS */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap";
+
+// Add SASS theme customizations here..
+body {
+  color: $dark;
+}
