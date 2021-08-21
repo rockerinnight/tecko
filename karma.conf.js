@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/tecko'),
+      dir: require('path').join(__dirname, './coverage/tlu-social-network'),
       subdir: '.',
       reporters: [
         { type: 'html' },
