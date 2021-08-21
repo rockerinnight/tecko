@@ -1,14 +1,7 @@
 @import "../../../shared/variables.scss";
 
-.profile-card__dropdown {
-  background-color: white;
-
-  &:hover {
-    border-color: #c38fff !important;
-    color: $primary !important;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(127 15 255 / 25%);
-  }
+.profile-card {
+  height: 20vh;
 }
 
 img {
