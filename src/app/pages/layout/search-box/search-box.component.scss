@@ -1,16 +1,20 @@
 @import "../../../shared/variables.scss";
 
-input::placeholder {
+.search-box i {
   color: $primary;
 }
 
-input,
-input:focus {
+input::placeholder {
+  color: $placeholder;
+  font-size: 1.2rem;
+}
+
+input {
   border-radius: 2rem;
 }
 
 input:hover {
-  border-color: #c38fff !important;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgb(127 15 255 / 25%);
+  border-color: $border-hover !important;
+  box-shadow: $box-shadow-hover;
 }
