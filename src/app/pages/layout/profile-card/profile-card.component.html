@@ -1,4 +1,4 @@
-<section class="profile-card p-2">
+<section class="profile-card py-2">
   <div
     class="dropup w-100"
     [class.show]="onClick"
@@ -17,7 +17,7 @@
       "
     >
       <div class="d-flex align-items-center">
-        <button class="btn p-0">
+        <button class="btn p-0" tabindex="-1">
           <img src="./../../../../assets/profile.jpg" alt="Profile Picture" />
         </button>
         <div class="d-flex flex-column ml-xl-2">
@@ -37,8 +37,8 @@
       ></i>
     </button>
     <button class="dropdown-menu w-100 bg-white" [class.show]="onClick">
-      <a class="dropdown-item text-primary" routerLink="/">Settings</a>
-      <a class="dropdown-item text-primary" routerLink="/">Log out</a>
+      <a class="dropdown-item text-dark" routerLink="/">Settings</a>
+      <a class="dropdown-item text-dark" routerLink="/">Log out</a>
     </button>
   </div>
 </section>
