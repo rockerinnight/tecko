@@ -1,7 +1,7 @@
 @import "../../../shared/variables.scss";
 
 .sidenav {
-  height: 80vh;
+  height: 90vh;
   font-size: 1.2rem;
 
   button {
@@ -21,6 +21,10 @@
 button:hover {
   color: $light;
   background-color: rgba(127, 15, 255, 0.5);
+}
+
+.profile-card {
+  height: 10vh;
 }
 
 @media (max-width: 1199.98px) {
