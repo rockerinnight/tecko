@@ -9,7 +9,10 @@
       for="search-box"
       class="col-form-label col-form-label-lg position-absolute px-3"
     >
-      <i class="fa fa-search"></i>
+      <i
+        class="search-box-icon fa fa-search"
+        [class.text-primary]="onClick"
+      ></i>
     </label>
     <input
       id="search-box"

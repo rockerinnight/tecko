@@ -1,0 +1,29 @@
+@import "./../../../shared/variables.scss";
+
+.trend-header {
+  color: $dark;
+}
+
+.trend-reputation {
+  color: $placeholder-dark;
+  & i {
+    color: $placeholder;
+  }
+}
+
+.trend-button {
+  background-color: $light !important;
+
+  &:hover {
+    .trend-header {
+      color: $primary;
+    }
+
+    .trend-reputation {
+      color: $placeholder;
+    }
+    outline: 0;
+    border-color: $border-hover !important;
+    box-shadow: $box-shadow-hover;
+  }
+}

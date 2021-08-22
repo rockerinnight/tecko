@@ -1,11 +1,8 @@
 @import "../../../shared/variables.scss";
 
-.search-box i {
-  color: $primary;
-}
-
+.search-box i,
 input::placeholder {
-  color: $placeholder;
+  color: $placeholder-dark;
   font-size: 1.2rem;
 }
 

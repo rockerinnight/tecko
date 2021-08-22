@@ -1,15 +1,23 @@
 @import "../../../shared/variables.scss";
 
-.profile-card__dropdown {
-  color: $dark;
-  background-color: white;
-
-  &:hover {
-    color: $primary !important;
-    outline: 0;
-    border-color: $border-hover !important;
-    box-shadow: $box-shadow-hover;
+.profile-card {
+  &__dropdown {
+    color: $dark !important;
+    background-color: $light !important;
   }
+  &__username {
+    color: $placeholder-dark;
+  }
+}
+
+.profile-card__dropdown:hover {
+  color: $primary;
+  .profile-card__username {
+    color: $placeholder;
+  }
+  outline: 0;
+  border-color: $border-hover !important;
+  box-shadow: $box-shadow-hover;
 }
 
 img {
@@ -19,6 +27,6 @@ img {
 }
 
 .dropdown-item:hover {
-  color: white !important;
+  color: $light !important;
   background-color: $border-hover;
 }
