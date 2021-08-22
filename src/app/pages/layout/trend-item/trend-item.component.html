@@ -1,1 +1,38 @@
-<p>trend-item works!</p>
+<section
+  class="trend-item py-2 px-1"
+  (mouseover)="onHover = true"
+  (mouseout)="onHover = false"
+>
+  <button
+    class="
+      trend-button
+      w-100
+      text-left
+      btn btn-outline-primary
+      border
+      py-3
+      px-4
+    "
+  >
+    <div class="trend-header h5 m-0">Satan666</div>
+    <div class="trend-reputation">
+      <span class="trend-like" title="Get total of {{ likeCount }} hearts">
+        {{ likeCount }}
+        <i *ngIf="onHover; else esleBlockHeart" class="fa fa-heart"></i>
+        <ng-template #esleBlockHeart>
+          <i class="fa fa-heart-o"></i>
+        </ng-template>
+      </span>
+      <span
+        class="trend-frequency"
+        title="Appeared across {{ articleCount }} teckikos"
+      >
+        {{ articleCount }}
+        <i *ngIf="onHover; else elseBlockPlane" class="fa fa-paper-plane"></i>
+        <ng-template #elseBlockPlane>
+          <i class="fa fa-paper-plane-o"></i>
+        </ng-template>
+      </span>
+    </div>
+  </button>
+</section>

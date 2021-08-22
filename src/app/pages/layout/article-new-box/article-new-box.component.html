@@ -1,4 +1,6 @@
-<section class="article-new-box w-100 border btn btn-outline-primary text-left p-4">
+<section
+  class="article-new-box w-100 border btn btn-outline-primary text-left p-4"
+>
   <form [formGroup]="editorForm">
     <quill-editor
       formControlName="editorContent"
@@ -28,13 +30,15 @@
       article-submit
       d-flex
       justify-content-between
-      align-items-center
+      align-items-end
       text-primary
       position-absolute
     "
   >
     <span>{{ contentLength }}</span>
-    <button class="btn btn-primary px-4 py-2" (click)="onSubmit()">Tecko</button>
+    <button class="btn btn-primary px-4 py-2" (click)="onSubmit()" disabled>
+      Tecko
+    </button>
   </div>
 </section>
 <!-- <quill-view
