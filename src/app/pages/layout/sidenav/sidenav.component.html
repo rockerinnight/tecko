@@ -1,26 +1,31 @@
 <section class="sidenav d-flex flex-column">
-  <div class="logo mx-auto p-lg-3 p-md-2 p-1">
-    <button class="btn" routerLink="/home">
-      <img
-        src="./../../../../assets/logo.png"
-        alt="Techticle Logo"
-        class="w-100 mx-auto"
-      />
-    </button>
+  <div class="sidenav__logo btn" routerLink="/home">
+    <img src="./../../../../assets/logo.svg" alt="Tecko Logo" class="w-100" />
   </div>
-  <div class="sidenav-list py-2">
+  <div class="sidenav__menu py-2">
     <button
       *ngFor="let navMenuItem of navMenu"
+      [title]="navMenuItem.title"
       routerLink="{{ navMenuItem.path }}"
       routerLinkActive="active"
-      class="btn text-decoration-none d-flex ml-xl-4 mx-auto px-xl-4 py-3"
+      class="
+        sidenav__menu-item
+        btn
+        d-flex
+        align-items-center
+        ml-xl-4
+        mx-auto
+        p-xl-3 p-lg-3 p-md-3
+        py-sm-3
+        px-sm-2
+        py-3
+        px-1
+      "
     >
-      <i class="fa pr-xl-2" [ngClass]="navMenuItem.icon"></i>
+      <i class="fa pr-xl-3" [ngClass]="navMenuItem.icon"></i>
       <span class="h4 d-xl-inline d-none m-0">{{ navMenuItem.title }}</span>
     </button>
   </div>
-  <app-article-new-button></app-article-new-button>
-</section>
-<section class="profile-card d-flex flex-column">
-  <app-profile-card [layout]="'sidenav'"></app-profile-card>
+  <app-article-new-button class="sidenav__new-btn"></app-article-new-button>
+  <!-- <app-profile-card [layout]="'sidenav'"></app-profile-card> -->
 </section>

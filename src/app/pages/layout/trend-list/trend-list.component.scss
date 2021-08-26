@@ -1,0 +1,9 @@
+@import "./../../../shared/variables.scss";
+
+.trend-list__wrapper {
+  border-radius: $btn-border-radius;
+	pointer-events: none;
+	& > * {
+		pointer-events: all;
+	}
+}

@@ -1,8 +1,6 @@
 @import "./../../../shared/variables.scss";
 
-.article-new-box {
-  color: $dark !important;
-  background-color: $light !important;
+.article-new-box__wrapper {
   position: relative;
 
   &:hover {
