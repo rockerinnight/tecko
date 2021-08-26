@@ -1,44 +1,44 @@
-<section
-  class="article-new-box w-100 border btn btn-outline-primary text-left p-4"
->
-  <form [formGroup]="editorForm">
-    <quill-editor
-      formControlName="editorContent"
-      [placeholder]="'Wanna share something today?'"
-      [customToolbarPosition]="'bottom'"
-      [debounceTime]="50"
-      [minLength]="1"
-      [maxLength]="500"
-      [trimOnValidation]="true"
-      (onContentChanged)="onContentChanged($event)"
+<section class="article-new-box">
+  <div class="article-new-box__wrapper btn border w-100 text-left p-4">
+    <form [formGroup]="editorForm">
+      <quill-editor
+        formControlName="editorContent"
+        [placeholder]="'Wanna share something today?'"
+        [customToolbarPosition]="'bottom'"
+        [debounceTime]="50"
+        [minLength]="1"
+        [maxLength]="500"
+        [trimOnValidation]="true"
+        (onContentChanged)="onContentChanged($event)"
+      >
+        <div quill-editor-toolbar>
+          <span class="ql-formats">
+            <button class="ql-blockquote"></button>
+            <button class="ql-code-block"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-link"></button>
+            <button class="ql-image"></button>
+            <button class="ql-video"></button>
+          </span>
+        </div>
+      </quill-editor>
+    </form>
+    <div
+      class="
+        article-submit
+        text-primary
+        position-absolute
+        d-flex
+        justify-content-between
+        align-items-end
+      "
     >
-      <div quill-editor-toolbar>
-        <span class="ql-formats">
-          <button class="ql-blockquote"></button>
-          <button class="ql-code-block"></button>
-        </span>
-        <span class="ql-formats">
-          <button class="ql-link"></button>
-          <button class="ql-image"></button>
-          <button class="ql-video"></button>
-        </span>
-      </div>
-    </quill-editor>
-  </form>
-  <div
-    class="
-      article-submit
-      d-flex
-      justify-content-between
-      align-items-end
-      text-primary
-      position-absolute
-    "
-  >
-    <span>{{ contentLength }}</span>
-    <button class="btn btn-primary px-4 py-2" (click)="onSubmit()" disabled>
-      Tecko
-    </button>
+      <span>{{ contentLength }}</span>
+      <button class="btn btn-primary px-4 py-2" (click)="onSubmit()" disabled>
+        Tecko
+      </button>
+    </div>
   </div>
 </section>
 <!-- <quill-view

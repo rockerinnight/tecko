@@ -10,15 +10,17 @@ import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { TrendListComponent } from './trend-list/trend-list.component';
 
 const componentList = [
   SidenavComponent,
   SearchBoxComponent,
-  TrendItemComponent,
-  ArticleNewBoxComponent,
-  ArticleItemComponent,
-  ArticleNewButtonComponent,
   ProfileCardComponent,
+  TrendItemComponent,
+  TrendListComponent,
+  ArticleNewBoxComponent,
+  ArticleNewButtonComponent,
+  ArticleItemComponent,
 ];
 
 @NgModule({

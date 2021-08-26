@@ -1,4 +1,4 @@
-<section class="profile-card py-2">
+<section class="profile-card pt-lg-3 pb-lg-0 py-3">
   <div
     class="dropup w-100"
     [class.show]="onClick"
@@ -7,24 +7,28 @@
   >
     <button
       class="
-        profile-card__dropdown
-        btn btn-outline-primary
+        profile-card__wrapper
+        btn
         border
         w-100
         d-flex
         justify-content-xl-between justify-content-center
         align-items-center
+        p-2
       "
     >
-      <div class="d-flex align-items-center">
+      <div class="d-flex justify-content-center align-items-center">
         <button class="btn p-0" tabindex="-1">
-          <img src="./../../../../assets/profile.jpg" alt="Profile Picture" />
+          <img
+            class="profile-picture"
+            src="./../../../../assets/profile.jpg"
+            alt="Profile Picture"
+          />
         </button>
-        <div class="d-flex flex-column ml-xl-2">
+        <div class="d-flex flex-column ml-xl-2 ml-lg-2">
           <span
             class="
-              profile-card__alias
-              d-none d-xl-inline
+              d-none d-xl-inline d-lg-inline
               align-self-start
               font-weight-bold
             "
@@ -32,7 +36,11 @@
             Linh Đoàn
           </span>
           <span
-            class="profile-card__username d-none d-xl-inline align-self-start"
+            class="
+              profile-username
+              d-none d-xl-inline d-lg-inline
+              align-self-start
+            "
           >
             @rockerinnight
           </span>

@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="sidenav col-xl-3 col-2">
+    <div
+      class="
+        left-col
+        border-right border-left
+        col-xl-3 col-lg-2 col-md-2 col-12
+      "
+    >
       <app-sidenav></app-sidenav>
     </div>
-    <div
-      class="main-content border-right border-left col-xl-6 col-lg-7 col-10 p-3"
-    >
+    <div class="mid-col col-xl-6 col-lg-7 col-md-10 col-12 p-3">
       <app-article-new-box></app-article-new-box>
       <app-article-item></app-article-item>
       <app-trend-item></app-trend-item>
@@ -13,13 +17,20 @@
       <app-article-item></app-article-item>
       <app-article-item></app-article-item>
     </div>
-    <div class="col-2 d-lg-none d-block"></div>
-    <div class="trend-list col-xl-3 col-lg-3 col-8">
-      <app-search-box></app-search-box>
-      <app-trend-item></app-trend-item>
-      <app-trend-item></app-trend-item>
-      <app-trend-item></app-trend-item>
-      <app-trend-item></app-trend-item>
+    <div
+      class="
+        right-col
+        border-right border-left
+        d-lg-block d-flex
+        col-xl-3 col-lg-3 col-md-2 col-12
+      "
+    >
+      <app-profile-card
+        [layout]="'sidenav'"
+        class="align-self-md-end"
+      ></app-profile-card>
+      <!-- <app-search-box class="search-box"></app-search-box> -->
+      <app-trend-list class="d-lg-block d-none"></app-trend-list>
     </div>
   </div>
 </div>

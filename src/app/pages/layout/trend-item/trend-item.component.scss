@@ -1,9 +1,5 @@
 @import "./../../../shared/variables.scss";
 
-.trend-header {
-  color: $dark;
-}
-
 .trend-reputation {
   color: $placeholder-dark;
   & i {
@@ -12,13 +8,10 @@
 }
 
 .trend-button {
-  background-color: $light !important;
-
   &:hover {
     .trend-header {
       color: $primary;
     }
-
     .trend-reputation {
       color: $placeholder;
     }

@@ -1,18 +1,12 @@
 @import "../../../shared/variables.scss";
 
-.profile-card {
-  &__dropdown {
-    color: $dark !important;
-    background-color: $light !important;
-  }
-  &__username {
-    color: $placeholder-dark;
-  }
+.profile-card__username {
+  color: $placeholder-dark;
 }
 
-.profile-card__dropdown:hover {
+.profile-card__wrapper:hover {
   color: $primary;
-  .profile-card__username {
+  .profile-username {
     color: $placeholder;
   }
   outline: 0;
@@ -20,7 +14,7 @@
   box-shadow: $box-shadow-hover;
 }
 
-img {
+.profile-picture {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;

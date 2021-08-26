@@ -1,40 +1,58 @@
 @import "../../../shared/variables.scss";
 
 .sidenav {
-  height: 89vh;
   font-size: 1.2rem;
-
-  button {
-    color: $dark;
-
+  &__logo {
+    width: 45%;
+    padding: 1em !important;
+    margin: 0.5em auto 1em auto;
+  }
+  &__menu-item {
+    & i {
+      font-size: calc(1.2em + 1vw);
+    }
     &.active {
       font-weight: bold;
       color: $primary;
     }
   }
-
-  &-list i {
-    font-size: 1.5em;
-  }
 }
 
-.sidenav-list button:hover {
+.sidenav__menu-item:hover {
   color: $light !important;
   background-color: $placeholder;
 }
 
-.profile-card {
-  height: 10vh;
+@media (max-width: 1199.98px) {
+  .sidenav {
+    &__logo {
+      width: 75%;
+    }
+  }
 }
 
-@media (max-width: 1199.98px) {
-  .sidenav-list i {
-    font-size: 1.7em;
+@media (max-width: 991.98px) {
+  .sidenav {
+    &__logo {
+      width: 90%;
+      padding: 0.75em !important;
+      margin: 0.75em auto 1.25em auto;
+    }
   }
 }
 
 @media (max-width: 767.98px) {
-  .sidenav-list i {
-    font-size: 1.3em;
+  .sidenav {
+    flex-direction: row !important;
+    &__logo {
+      display: none;
+    }
+    &__menu {
+      flex: 5;
+      display: flex;
+    }
+    &__new-btn {
+      flex: 1;
+    }
   }
 }
