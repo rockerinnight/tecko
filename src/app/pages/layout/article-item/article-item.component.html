@@ -1,1 +1,96 @@
-<p>article-item works!</p>
+<section class="article-item py-1">
+  <button class="btn w-100 text-left border px-3 py-2">
+    <div class="article-item-author d-flex align-items-center">
+      <div class="article-item-author__picture">
+        <a href="#">
+          <img
+            [src]="article.author?.image"
+            [alt]="article.author?.username + '\'s picture'"
+            [title]="article.author?.username"
+            class="p-1"
+          />
+        </a>
+      </div>
+      <div class="article-item-author__info pl-2">
+        <div class="info__username font-weight-bold pl-1">
+          <a href="#" class="text-dark">{{ article.author?.username }}</a>
+        </div>
+        <div class="info__follow-btn pt-1">
+          <button
+            *ngIf="article.author?.following; else elseBlock"
+            class="btn btn-secondary"
+          >
+            Unfollow
+          </button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary text-light">Follow</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="article-item-content p-2">
+      <div class="article-item-content__update-date">
+        <a href="#">{{ article.updatedAt | date }}</a>
+      </div>
+      <div class="article-item-content__title">
+        <a href="#" class="h5">
+          {{ article.title }}
+        </a>
+      </div>
+      <div class="article-item-content__description">
+        <p class="font-italic">
+          {{ article.description | truncate: 60 }}
+        </p>
+      </div>
+      <div class="article-item-content__body">
+        <p href="#" class="m-0">
+          {{ article.body | truncate: 200 }}
+          <a *ngIf="article.body.length > 200" href="#">read more</a>
+        </p>
+      </div>
+    </div>
+    <div
+      class="
+        article-item-actions
+        d-flex
+        align-items-center
+        justify-content-between
+        flex-wrap
+        p-2
+      "
+    >
+      <div class="tag-list d-flex align-items-center">
+        <span class="pr-1">Mention tags:</span>
+        <span
+          *ngFor="let tagItem of article.tagList"
+          class="tag-list__item px-1"
+        >
+          <button class="btn border text-primary">
+            {{ tagItem }}
+          </button>
+        </span>
+      </div>
+      <div class="reaction">
+        <button
+          class="btn btn-outline-primary"
+          [class.border]="!article.favorited"
+          (mouseover)="onHover = true"
+          (mouseout)="onHover = false"
+        >
+          <span class="pr-1">
+            {{ article.favoritesCount }}
+          </span>
+          <span>
+            <i
+              *ngIf="onHover || article.favorited; else elseHeart"
+              class="fa fa-heart"
+            ></i>
+            <ng-template #elseHeart>
+              <i class="fa fa-heart-o"></i>
+            </ng-template>
+          </span>
+        </button>
+      </div>
+    </div>
+  </button>
+</section>
