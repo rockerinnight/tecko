@@ -135,4 +135,7 @@
 // Add SASS theme customizations here..
 body {
   color: $dark;
+  .btn {
+    user-select: text !important;
+  }
 }

@@ -11,6 +11,8 @@ import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
+import { TruncatePipe } from 'src/app/shared/truncate.pipe';
+import { ArticleListComponent } from './article-list/article-list.component';
 
 const componentList = [
   SidenavComponent,
@@ -21,10 +23,11 @@ const componentList = [
   ArticleNewBoxComponent,
   ArticleNewButtonComponent,
   ArticleItemComponent,
+  ArticleListComponent,
 ];
 
 @NgModule({
-  declarations: [...componentList],
+  declarations: [...componentList, TruncatePipe],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, QuillModule],
   exports: [...componentList],
 })
