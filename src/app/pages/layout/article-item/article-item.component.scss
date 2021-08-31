@@ -3,6 +3,10 @@
 .article-item {
   & > button {
     cursor: default;
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
   }
   &-author__picture img {
     width: 4rem;
@@ -34,4 +38,9 @@
 
 .tag-list__item button {
   padding: 0.2em 0.5em;
+  &:hover {
+    outline: 0;
+    border-color: $border-hover !important;
+    box-shadow: $box-shadow-hover;
+  }
 }

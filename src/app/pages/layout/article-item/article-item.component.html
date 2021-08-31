@@ -18,12 +18,12 @@
         <div class="info__follow-btn pt-1">
           <button
             *ngIf="article.author?.following; else elseBlock"
-            class="btn btn-secondary"
+            class="btn btn-outline-primary"
           >
             Unfollow
           </button>
           <ng-template #elseBlock>
-            <button class="btn btn-primary text-light">Follow</button>
+            <button class="btn btn-primary">Follow</button>
           </ng-template>
         </div>
       </div>
