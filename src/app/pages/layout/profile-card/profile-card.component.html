@@ -1,63 +1,42 @@
-<section class="profile-card pt-lg-3 pb-lg-0 py-3">
-  <div
-    class="dropdown w-100"
-    [class.show]="onClick"
-    (click)="toggleDropdown()"
-    (focusout)="onClick = false"
+<section
+  class="profile-card dropdown w-100 pt-lg-3 pb-lg-0 py-3"
+  [class.show]="onClick"
+  (click)="toggleDropdown()"
+  (focusout)="onClick = false"
+>
+  <button
+    class="
+      profile-card__wrapper
+      btn
+      border
+      w-100
+      d-flex
+      justify-content-center
+      align-items-center
+      text-left
+      py-2
+    "
   >
-    <button
-      class="
-        profile-card__wrapper
-        btn
-        border
-        w-100
-        d-flex
-        justify-content-xl-between justify-content-center
-        align-items-center
-        p-2
-      "
+    <div class="profile-card__picture btn p-0">
+      <img src="./../../../../assets/profile.jpg" alt="Profile Picture" />
+    </div>
+    <div
+      class="profile-card__info d-xl-block d-lg-block d-none ml-xl-2 ml-lg-2"
     >
-      <div class="d-flex justify-content-center align-items-center">
-        <button class="btn p-0" tabindex="-1">
-          <img
-            class="profile-picture"
-            src="./../../../../assets/profile.jpg"
-            alt="Profile Picture"
-          />
-        </button>
-        <div class="d-flex flex-column ml-xl-2 ml-lg-2">
-          <span
-            class="
-              d-none d-xl-inline d-lg-inline
-              align-self-start
-              font-weight-bold
-            "
-          >
-            Linh Đoàn
-          </span>
-          <span
-            class="
-              profile-username
-              d-none d-xl-inline d-lg-inline
-              align-self-start
-            "
-          >
-            @rockerinnight
-          </span>
-        </div>
-      </div>
-      <i
+      <div class="profile-card__alias font-weight-bold">Linh Đoàn</div>
+      <div class="profile-card__username">@rockerinnight</div>
+    </div>
+    <!-- <i
         *ngIf="layout === 'sidenav'"
         class="fa fa-ellipsis-h d-none d-xl-inline"
       ></i>
-      <i
-        *ngIf="layout === 'search-box'"
-        class="fa fa-times d-none d-xl-inline"
-      ></i>
-    </button>
-    <button class="dropdown-menu w-100 bg-white" [class.show]="onClick">
-      <a class="dropdown-item text-dark" routerLink="/">Settings</a>
-      <a class="dropdown-item text-dark" routerLink="/">Log out</a>
-    </button>
-  </div>
+    <i
+      *ngIf="layout === 'search-box'"
+      class="fa fa-times d-none d-xl-inline"
+    ></i> -->
+  </button>
+  <button class="dropdown-menu w-100 bg-white" [class.show]="onClick">
+    <a class="dropdown-item text-dark" routerLink="/">Settings</a>
+    <a class="dropdown-item text-dark" routerLink="/">Log out</a>
+  </button>
 </section>

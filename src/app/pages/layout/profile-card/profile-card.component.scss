@@ -1,4 +1,4 @@
-@import "../../../shared/variables.scss";
+@import "../../../shared/colors.scss";
 
 .profile-card__username {
   color: $placeholder-dark;
@@ -14,7 +14,7 @@
   box-shadow: $box-shadow-hover;
 }
 
-.profile-picture {
+.profile-card__picture img {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
