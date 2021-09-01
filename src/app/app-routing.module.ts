@@ -13,6 +13,27 @@ const routes: Routes = [
     loadChildren: () =>
       import('src/app/pages/home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: Path.Explore,
+    loadChildren: () =>
+      import('src/app/pages/explore/explore.module').then(
+        (m) => m.ExploreModule
+      ),
+  },
+  {
+    path: Path.Bookmarks,
+    loadChildren: () =>
+      import('src/app/pages/bookmark/bookmark.module').then(
+        (m) => m.BookmarkModule
+      ),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('src/app/pages/session/session.module').then(
+        (m) => m.SessionModule
+      ),
+  },
 ];
 
 @NgModule({

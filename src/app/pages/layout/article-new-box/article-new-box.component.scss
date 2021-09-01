@@ -1,7 +1,8 @@
-@import "./../../../shared/variables.scss";
+@import "./../../../shared/colors.scss";
 
 .article-new-box__wrapper {
   position: relative;
+  background-color: white;
 
   &:hover {
     outline: 0;
@@ -14,4 +15,13 @@
   width: 25%;
   right: 1.5rem;
   bottom: 1.4rem;
+}
+
+.article-close {
+  color: $secondary;
+  right: 1.5rem;
+  top: 1.4rem;
+  &:hover {
+    color: $dark;
+  }
 }

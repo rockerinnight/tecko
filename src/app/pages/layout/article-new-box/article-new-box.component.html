@@ -39,6 +39,13 @@
         Tecko
       </button>
     </div>
+    <div
+      *ngIf="layout === 'modal'"
+      class="article-close position-absolute"
+      (click)="closeModal()"
+    >
+      <i class="fa fa-times"></i>
+    </div>
   </div>
 </section>
 <!-- <quill-view
