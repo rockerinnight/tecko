@@ -1,0 +1,24 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="signup__username">
+    <label for="usernameInput">Username</label>
+    <input id="usernameInput" type="text" formControlName="username" />
+  </div>
+  <div class="signup__email">
+    <label for="emailInput">Email</label>
+    <input id="emailInput" type="email" formControlName="email" />
+  </div>
+  <div class="signup__password">
+    <label for="passwordInput">Password</label>
+    <input id="passwordInput" type="password" formControlName="password" />
+  </div>
+  <div class="signup-term">
+    <small
+      >By clicking Sign Up, you agree to our <a href="#">Terms</a>,
+      <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may
+      receive SMS notifications from us and can opt out at any time.</small
+    >
+  </div>
+  <div class="signup__submit">
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+  </div>
+</form>
