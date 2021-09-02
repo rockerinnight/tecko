@@ -1,12 +1,7 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div
-      class="
-        left-col
-        border-right border-left
-        col-xl-3 col-lg-2 col-md-2 col-12
-      "
-    >
+    <div class="col-xl-1"></div>
+    <div class="left-col col-xl-2 col-lg-2 col-md-2 col-12">
       <app-sidenav></app-sidenav>
     </div>
     <div class="mid-col col-xl-6 col-lg-7 col-md-10 col-12 p-3">
@@ -16,17 +11,17 @@
     <div
       class="
         right-col
-        border-right border-left
         d-lg-block d-flex
         col-xl-3 col-lg-3 col-md-2 col-12
       "
     >
-      <app-profile-card
-        [layout]="'sidenav'"
+      <app-user-card
+        [layout]="'profile'"
         class="align-self-md-end"
-      ></app-profile-card>
+      ></app-user-card>
       <!-- <app-search-box class="search-box"></app-search-box> -->
       <app-trend-list class="d-lg-block d-none"></app-trend-list>
+      <app-user-card-list></app-user-card-list>
     </div>
   </div>
 </div>

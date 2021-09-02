@@ -9,21 +9,23 @@ import { ArticleNewButtonComponent } from './article-new-button/article-new-butt
 import { RouterModule } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { UserCardComponent } from './user-card/user-card.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
 import { TruncatePipe } from 'src/app/shared/truncate.pipe';
 import { ArticleListComponent } from './article-list/article-list.component';
+import { UserCardListComponent } from './user-card-list/user-card-list.component';
 
 const componentList = [
   SidenavComponent,
   SearchBoxComponent,
-  ProfileCardComponent,
+  UserCardComponent,
   TrendItemComponent,
   TrendListComponent,
   ArticleNewBoxComponent,
   ArticleNewButtonComponent,
   ArticleItemComponent,
   ArticleListComponent,
+  UserCardListComponent,
 ];
 
 @NgModule({

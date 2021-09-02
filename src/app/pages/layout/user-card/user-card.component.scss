@@ -1,12 +1,12 @@
 @import "../../../shared/colors.scss";
 
-.profile-card__username {
+.user-card__username {
   color: $placeholder-dark;
 }
 
-.profile-card__wrapper:hover {
+.user-card__wrapper:hover {
   color: $primary;
-  .profile-username {
+  .user-username {
     color: $placeholder;
   }
   outline: 0;
@@ -14,11 +14,15 @@
   box-shadow: $box-shadow-hover;
 }
 
-.profile-card__picture img {
+.user-card__picture img {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.info__follow-btn button {
+  padding: 0.2rem 0.5rem;
 }
 
 .dropdown-item:hover {
