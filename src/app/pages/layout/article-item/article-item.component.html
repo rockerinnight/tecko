@@ -33,7 +33,7 @@
         <a href="#">{{ article.updatedAt | date }}</a>
       </div>
       <div class="article-item-content__title">
-        <a href="#" class="h5">
+        <a href="#" class="h4">
           {{ article.title }}
         </a>
       </div>
@@ -43,10 +43,17 @@
         </p>
       </div>
       <div class="article-item-content__body">
-        <p href="#" class="m-0">
+        <p class="m-0">
           {{ article.body | truncate: 200 }}
-          <a *ngIf="article.body.length > 200" href="#">read more</a>
         </p>
+        <a
+          *ngIf="article.body.length > 200"
+          routerLink="/articles/{{ article.slug }}"
+        >
+          <span>Read more</span>
+          &nbsp;&SmallCircle;&nbsp;
+          <span>5 min read</span>
+        </a>
       </div>
     </div>
     <div

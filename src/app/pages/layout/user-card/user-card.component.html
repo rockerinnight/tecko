@@ -1,0 +1,54 @@
+<section
+  class="
+    user-card
+    dropdown
+    w-100
+    d-flex
+    justify-content-between
+    align-items-center
+    pt-lg-3
+    pb-lg-0
+    py-3
+  "
+  [class.show]="onClick"
+  (click)="toggleDropdown()"
+  (focusout)="onClick = false"
+>
+  <button
+    class="
+      user-card__wrapper
+      btn
+      border
+      w-100
+      d-flex
+      justify-content-between
+      align-items-center
+      py-2
+    "
+  >
+    <div class="d-flex justify-content-center align-items-center text-left">
+      <div class="user-card__picture btn p-0">
+        <img src="./../../../../assets/user.jpg" alt="User Picture" />
+      </div>
+      <div class="user-card__info d-xl-block d-lg-block d-none ml-xl-2 ml-lg-2">
+        <div class="user-card__alias font-weight-bold">Linh Đoàn</div>
+        <div class="user-card__username">@rockerinnight</div>
+      </div>
+    </div>
+    <div *ngIf="layout === 'author'" class="info__follow-btn pt-1">
+      <button class="btn btn-outline-primary">Unfollow</button>
+      <!-- <ng-template #elseBlock>
+        <button class="btn btn-primary">Follow</button>
+      </ng-template> -->
+    </div>
+  </button>
+
+  <button
+    *ngIf="layout === 'profile'"
+    class="dropdown-menu w-100 bg-white"
+    [class.show]="onClick"
+  >
+    <a class="dropdown-item text-dark" routerLink="/">Settings</a>
+    <a class="dropdown-item text-dark" routerLink="/">Log out</a>
+  </button>
+</section>

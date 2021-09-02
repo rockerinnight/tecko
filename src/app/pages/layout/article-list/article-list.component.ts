@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { IArticles } from 'src/app/core/models/articles.model';
 
 @Component({
@@ -6,12 +8,14 @@ import { IArticles } from 'src/app/core/models/articles.model';
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss'],
 })
-export class ArticleListComponent implements OnInit {
+export class ArticleListComponent implements OnInit, OnDestroy {
+  subject$ = new Subject();
   articleList!: IArticles;
+  obsData$!: Observable<any>;
   constructor() {}
 
   ngOnInit(): void {
-    this.articleList = {
+    this.obsData$ = of({
       articles: [
         {
           slug: 'how-to-train-your-dragon',
@@ -50,6 +54,14 @@ export class ArticleListComponent implements OnInit {
         },
       ],
       articlesCount: 2,
-    };
+    });
+    this.obsData$.pipe(takeUntil(this.subject$)).subscribe((res: any) => {
+      this.articleList = res;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subject$.next();
+    this.subject$.complete();
   }
 }

@@ -1,0 +1,8 @@
+@import "./../../../shared/colors.scss";
+
+.user-list__wrapper {
+  pointer-events: none;
+  & > * {
+    pointer-events: all;
+  }
+}

@@ -33,10 +33,18 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: Path.Bookmarks,
+    path: Path.Favorites,
     loadChildren: () =>
-      import('src/app/pages/bookmark/bookmark.module').then(
-        (m) => m.BookmarkModule
+      import('src/app/pages/favorite/favorite.module').then(
+        (m) => m.FavoriteModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: Path.Articles,
+    loadChildren: () =>
+      import('src/app/pages/article/article.module').then(
+        (m) => m.ArticleModule
       ),
     canActivate: [AuthGuard],
   },

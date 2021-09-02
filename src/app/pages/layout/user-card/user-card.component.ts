@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-profile-card',
-  templateUrl: './profile-card.component.html',
-  styleUrls: ['./profile-card.component.scss'],
+  selector: 'app-user-card',
+  templateUrl: './user-card.component.html',
+  styleUrls: ['./user-card.component.scss'],
 })
-export class ProfileCardComponent implements OnInit {
+export class UserCardComponent implements OnInit {
   @Input() layout!: string;
   onClick = false;
 

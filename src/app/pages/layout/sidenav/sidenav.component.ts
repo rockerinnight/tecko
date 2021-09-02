@@ -31,9 +31,9 @@ export class SidenavComponent implements OnInit {
         path: '/explore',
       },
       {
-        title: 'Bookmarks',
-        icon: 'fa-bookmark',
-        path: '/bookmarks',
+        title: 'Favorites',
+        icon: 'fa-heart',
+        path: '/favorites',
       },
       {
         title: 'More',
