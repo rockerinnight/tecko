@@ -1,13 +1,24 @@
 export enum Path {
-  // General containers
+  // Home
   Home = 'home',
+
+  // Explore
   Explore = 'explore',
+
+  // Bookmarks
   Bookmarks = 'bookmarks',
-  NotFound = '404',
-  PermissionDenied = '403',
 
   // Authentication
-  SignIn = 'sign-in',
+  Auth = 'auth',
+  LogIn = 'login',
   SignUp = 'sign-up',
   ForgotPassword = 'forgot-password',
+  Users = 'users',
+  User = 'user',
+  Profiles = 'profiles',
+  Articles = 'articles',
+
+  // Sessions
+  NotFound = '404',
+  PermissionDenied = '403',
 }
