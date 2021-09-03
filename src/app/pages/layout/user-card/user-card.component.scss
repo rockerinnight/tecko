@@ -1,28 +1,33 @@
 @import "../../../shared/colors.scss";
 
-.user-card__username {
-  color: $placeholder-dark;
-}
-
-.user-card__wrapper:hover {
-  color: $primary;
-  .user-username {
-    color: $placeholder;
+.user-card {
+  &__username {
+    color: $placeholder-dark;
   }
-  outline: 0;
-  border-color: $border-hover !important;
-  box-shadow: $box-shadow-hover;
+  &__wrapper {
+    &:hover {
+      color: $primary;
+      .user-username {
+        color: $placeholder;
+      }
+      outline: 0;
+      border-color: $border-hover !important;
+      box-shadow: $box-shadow-hover;
+    }
+  }
+  &__picture img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
-.user-card__picture img {
-  width: 4rem;
-  height: 4rem;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.info__follow-btn button {
-  padding: 0.2rem 0.5rem;
+.info__follow-btn {
+  flex: 0 1 5.5rem;
+  & button {
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 .dropdown-item:hover {

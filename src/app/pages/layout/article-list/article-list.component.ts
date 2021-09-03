@@ -10,8 +10,8 @@ import { IArticles } from 'src/app/core/models/articles.model';
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
   subject$ = new Subject();
-  articleList!: IArticles;
   obsData$!: Observable<any>;
+  articleList!: IArticles;
   constructor() {}
 
   ngOnInit(): void {

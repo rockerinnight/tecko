@@ -2,7 +2,6 @@
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.bubble.css";
 @import "~quill/dist/quill.snow.css";
-
 /*! `Custom` Bootstrap 4 theme */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,700);
@@ -14,7 +13,6 @@ $enable-shadows: false;
 $enable-gradients: false;
 $enable-grid-classes: false;
 @import "./app/shared/colors.scss";
-
 /* Customize Quill Editor Snow */
 .ql-container {
   font-family: $font-family-base;
@@ -71,7 +69,6 @@ $enable-grid-classes: false;
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
   color: $primary;
 }
-
 .ql-snow.ql-toolbar button:hover .ql-fill,
 .ql-snow .ql-toolbar button:hover .ql-fill,
 .ql-snow.ql-toolbar button:focus .ql-fill,
@@ -102,7 +99,6 @@ $enable-grid-classes: false;
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
   fill: $primary;
 }
-
 .ql-snow.ql-toolbar button:hover .ql-stroke,
 .ql-snow .ql-toolbar button:hover .ql-stroke,
 .ql-snow.ql-toolbar button:focus .ql-stroke,
@@ -133,15 +129,26 @@ $enable-grid-classes: false;
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
   stroke: $primary;
 }
-
 /* Bootstrap CSS */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap";
-
 // Add SASS theme customizations here..
 body {
   color: $dark;
   .btn {
     user-select: text !important;
   }
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
 }

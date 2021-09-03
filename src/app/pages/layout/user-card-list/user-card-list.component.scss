@@ -1,8 +1,13 @@
 @import "./../../../shared/colors.scss";
 
-.user-list__wrapper {
-  pointer-events: none;
-  & > * {
-    pointer-events: all;
+.user-list {
+  &__wrapper {
+    pointer-events: none;
+    & > * {
+      pointer-events: all;
+    }
+  }
+  &__title {
+    font-size: calc(1.3rem + 0.2vw);
   }
 }

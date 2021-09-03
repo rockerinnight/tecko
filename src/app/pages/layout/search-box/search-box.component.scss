@@ -1,5 +1,11 @@
 @import "../../../shared/colors.scss";
 
+.search-box {
+  // position: -webkit-sticky; /* Safari */
+  // position: sticky;
+  // top: 0;
+}
+
 .search-box i,
 input::placeholder {
   color: $placeholder-dark;
@@ -14,4 +20,9 @@ input:hover {
   outline: 0;
   border-color: $border-hover !important;
   box-shadow: $box-shadow-hover;
+}
+
+.dropdown-item:hover {
+  color: $light !important;
+  background-color: $border-hover;
 }

@@ -1,5 +1,6 @@
 <section class="article-new-box pb-1">
   <div class="article-new-box__wrapper btn border w-100 text-left p-4">
+    <input id="new-box-overlay" class="h-100 w-100 position-absolute" (focusout)="onFocusOut()"/>
     <form [formGroup]="editorForm">
       <quill-editor
         formControlName="editorContent"
@@ -9,7 +10,7 @@
         [minLength]="1"
         [maxLength]="500"
         [trimOnValidation]="true"
-        (onContentChanged)="onContentChanged($event)"
+        (onContentChanged)="charCounter($event)"
       >
         <div quill-editor-toolbar>
           <span class="ql-formats">
@@ -38,13 +39,6 @@
       <button class="btn btn-primary px-4 py-2" (click)="onSubmit()" disabled>
         Tecko
       </button>
-    </div>
-    <div
-      *ngIf="layout === 'modal'"
-      class="article-close position-absolute"
-      (click)="closeModal()"
-    >
-      <i class="fa fa-times"></i>
     </div>
   </div>
 </section>

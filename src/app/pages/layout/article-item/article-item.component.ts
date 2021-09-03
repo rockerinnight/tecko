@@ -7,8 +7,8 @@ import { IArticle } from 'src/app/core/models/article.model';
   styleUrls: ['./article-item.component.scss'],
 })
 export class ArticleItemComponent implements OnInit {
-  onHover = false;
   @Input() article!: IArticle;
+  onHover = false;
 
   constructor() {}
 
