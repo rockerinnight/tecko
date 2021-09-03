@@ -4,9 +4,9 @@
       <div class="article-item-author__picture">
         <a href="#">
           <img
-            [src]="article.author?.image"
-            [alt]="article.author?.username + '\'s picture'"
-            [title]="article.author?.username"
+            src="{{ article.author?.image }}"
+            alt="{{ article.author?.username }} 's picture"
+            title="{{ article.author?.username }}"
             class="p-1"
           />
         </a>
@@ -15,7 +15,7 @@
         <div class="info__username font-weight-bold pl-1">
           <a href="#" class="text-dark">{{ article.author?.username }}</a>
         </div>
-        <div class="info__follow-btn pt-1">
+        <div class="info__follow-btn mt-1">
           <button
             *ngIf="article.author?.following; else elseBlock"
             class="btn btn-outline-primary"

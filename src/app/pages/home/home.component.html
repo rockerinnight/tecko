@@ -1,27 +1,70 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xl-1"></div>
-    <div class="left-col col-xl-2 col-lg-2 col-md-2 col-12">
-      <app-sidenav></app-sidenav>
+  <div class="row h-100">
+    <div
+      class="left-col col-xl-3 col-lg-3 col-md-2 col-12 h-100 position-fixed"
+    >
+      <div class="row h-100 align-content-between ml-auto">
+        <div class="col-12">
+          <app-sidenav></app-sidenav>
+          <app-article-new-button
+            (msgSender)="msgCatcher($event)"
+          ></app-article-new-button>
+        </div>
+        <div class="col-12">
+          <app-user-card
+            [profile]="userData"
+            [layout]="'profile'"
+          ></app-user-card>
+        </div>
+      </div>
     </div>
-    <div class="mid-col col-xl-6 col-lg-7 col-md-10 col-12 p-3">
-      <app-article-new-box></app-article-new-box>
+    <div
+      class="
+        mid-col
+        col-xl-5 col-lg-6 col-md-8 col-12
+        h-100
+        pt-3
+        position-absolute
+      "
+    >
+      <!-- <app-article-new-box
+        #modalBox
+        [eventMsg]="openEventMsg"
+        (closeEvent)="catchCloseMsg($event)"
+      ></app-article-new-box> -->
+      <div>
+        <app-article-new-box
+          [msgGetter]="focusMsg"
+          (msgSender)="msgCatcher($event)"
+        ></app-article-new-box>
+      </div>
       <app-article-list></app-article-list>
     </div>
     <div
       class="
         right-col
-        d-lg-block d-flex
         col-xl-3 col-lg-3 col-md-2 col-12
+        h-100
+        pt-3
+        position-fixed
       "
     >
-      <app-user-card
-        [layout]="'profile'"
-        class="align-self-md-end"
-      ></app-user-card>
-      <!-- <app-search-box class="search-box"></app-search-box> -->
-      <app-trend-list class="d-lg-block d-none"></app-trend-list>
-      <app-user-card-list></app-user-card-list>
+      <div class="row h-100 mr-auto">
+        <div class="col-12">
+          <app-search-box></app-search-box>
+          <app-trend-list></app-trend-list>
+          <app-user-card-list></app-user-card-list>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- <div #newBox id="modal-container">
+  <div class="modal-wrapper mx-auto mt-3">
+    <app-article-new-box
+      [layout]="layout"
+      (closeEvent)="closeArticleNewModal($event)"
+    ></app-article-new-box>
+  </div>
+</div>  -->

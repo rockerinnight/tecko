@@ -1,46 +1,45 @@
-<section class="sidenav d-flex flex-column">
-  <div class="sidenav__logo btn" routerLink="/home">
-    <img
-      src="./../../../../assets/logo.svg"
-      alt="Tecko Logo"
-      class="img-fluid"
-    />
+<section class="sidenav">
+  <div class="row">
+    <div class="col-12 text-center">
+      <div class="sidenav__logo btn" routerLink="/{{ navMenu[0].path }}">
+        <img
+          src="./../../../../assets/logo.svg"
+          alt="Tecko Logo"
+          class="img-fluid"
+        />
+      </div>
+    </div>
   </div>
-  <div class="sidenav__menu py-2">
-    <button
-      *ngFor="let navMenuItem of navMenu"
-      [title]="navMenuItem.title"
-      routerLink="{{ navMenuItem.path }}"
-      routerLinkActive="active"
-      class="
-        sidenav__menu-item
-        btn
-        d-flex
-        align-items-center
-        ml-xl-4
-        mx-auto
-        p-xl-3 p-lg-3 p-md-3
-        py-sm-3
-        px-sm-2
-        py-3
-        px-1
-      "
-    >
-      <i class="fa pr-xl-3" [ngClass]="navMenuItem.icon"></i>
-      <span class="h4 d-xl-inline d-none m-0">{{ navMenuItem.title }}</span>
-    </button>
+  <div class="row">
+    <div class="col-12 text-center">
+      <div class="sidenav__menu btn border w-100">
+        <button
+          *ngFor="let navMenuItem of navMenu"
+          [title]="navMenuItem.title"
+          routerLink="{{ navMenuItem.path }}"
+          routerLinkActive="active"
+          class="
+            sidenav__menu-item
+            btn
+            d-flex
+            align-items-center
+            mx-auto
+            p-xl-3 p-lg-3 p-md-3
+            py-sm-3
+            px-sm-2
+            py-3
+            px-1
+          "
+        >
+          <i
+            class="sidenav__menu-item-icon fa"
+            [ngClass]="navMenuItem.icon"
+          ></i>
+          <span class="sidenav__menu-item-title h4 m-0">{{
+            navMenuItem.title
+          }}</span>
+        </button>
+      </div>
+    </div>
   </div>
-  <app-article-new-button
-    class="sidenav__new-btn"
-    (click)="openArticleNewModal()"
-  ></app-article-new-button>
 </section>
-
-<div #newBox id="modal-container">
-  <div class="modal-wrapper mx-auto mt-3">
-    <app-article-new-box
-      [layout]="layout"
-      (closeEvent)="closeArticleNewModal($event)"
-    ></app-article-new-box>
-  </div>
-</div>

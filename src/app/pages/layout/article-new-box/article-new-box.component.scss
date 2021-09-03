@@ -25,3 +25,16 @@
     color: $dark;
   }
 }
+
+#new-box-overlay {
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 2rem;
+  transition: box-shadow 0.25s ease-in-out, border-color 0.15s ease-in-out;
+  &:focus-visible {
+    outline: none;
+    border: $border-hover;
+    box-shadow: 0 0 0 0.2rem rgb(127 15 255 / 25%);
+  }
+}

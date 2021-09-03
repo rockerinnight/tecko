@@ -1,4 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,14 +16,20 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './article-new-box.component.html',
   styleUrls: ['./article-new-box.component.scss'],
 })
-export class ArticleNewBoxComponent implements OnInit {
-  @Input() layout!: string;
-  @Output() closeEvent = new EventEmitter();
+export class ArticleNewBoxComponent implements OnInit, OnChanges {
+  @Input() msgGetter!: string;
+  @Output() msgSender = new EventEmitter();
+  @ViewChild('newBox', { static: false }) newBox!: ElementRef;
   editorForm!: FormGroup;
   contentData!: string;
   contentLength!: number;
 
-  constructor() {}
+  constructor(private readonly renderer: Renderer2) {}
+
+  ngOnChanges(): void {
+    if (this.msgGetter && this.msgGetter === 'onFocus')
+      this.renderer.selectRootElement('#new-box-overlay').focus();
+  }
 
   ngOnInit(): void {
     this.editorForm = new FormGroup({
@@ -21,7 +37,7 @@ export class ArticleNewBoxComponent implements OnInit {
     });
   }
 
-  onContentChanged(e: any): void {
+  charCounter(e: any): void {
     this.contentLength = 1 + 500 - e.editor.getLength();
   }
 
@@ -29,8 +45,7 @@ export class ArticleNewBoxComponent implements OnInit {
     this.contentData = this.editorForm.controls.editorContent.value;
   }
 
-  closeModal(): void {
-    this.layout = 'close';
-    this.closeEvent.emit(this.layout);
+  onFocusOut(): void {
+    this.msgSender.emit('onFocusOut');
   }
 }

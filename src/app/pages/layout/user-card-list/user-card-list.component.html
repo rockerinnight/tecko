@@ -1,8 +1,12 @@
-<section class="user-list pt-3">
-  <span class="user-list__wrapper btn border w-100">
-    <app-user-card [layout]="'author'"></app-user-card>
-    <app-user-card [layout]="'author'"></app-user-card>
-    <app-user-card [layout]="'author'"></app-user-card>
-    <app-user-card [layout]="'author'"></app-user-card>
-  </span>
+<section class="user-list">
+  <div class="user-list__wrapper btn border p-xl-2 p-1 w-100">
+    <div class="h4 text-primary text-left pl-xl-3 pl-lg-2 pt-3">
+      <span class="user-list__title">Popular Authors</span>
+    </div>
+    <app-user-card
+      *ngFor="let profile of profileList"
+      [profile]="profile"
+      [layout]="'author'"
+    ></app-user-card>
+  </div>
 </section>

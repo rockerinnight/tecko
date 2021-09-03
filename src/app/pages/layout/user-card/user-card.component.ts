@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IProfile } from 'src/app/core/models/profile.model';
 
 @Component({
   selector: 'app-user-card',
@@ -7,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserCardComponent implements OnInit {
   @Input() layout!: string;
+  @Input() profile!: IProfile;
   onClick = false;
 
   constructor() {}
