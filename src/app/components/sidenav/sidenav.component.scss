@@ -1,4 +1,4 @@
-@import "../../../shared/colors.scss";
+@import "src/app/shared/colors.scss";
 
 .sidenav {
   &__logo {
@@ -8,21 +8,21 @@
       width: 4.5rem;
     }
   }
-  &__menu{
+  &__menu {
     &-item {
-    & * {
-      font-size: calc(1.3em + 0.2vw);
-    }
-    &-icon {
-      padding-right: 0.25em;
-    }
-    &.active {
-      color: $primary;
-      & .sidenav__menu-item-title {
-        font-weight: bold;
+      & * {
+        font-size: calc(1.3em + 0.2vw);
+      }
+      &-icon {
+        padding-right: 0.25em;
+      }
+      &.active {
+        color: $primary;
+        & .sidenav__menu-item-title {
+          font-weight: bold;
+        }
       }
     }
-  }
   }
 }
 
@@ -32,14 +32,14 @@
 }
 
 @media (max-width: 1199.98px) {
-  .sidenav {
-    &__logo {
-      // width: 45%;
-      & img {
-        // width: 100%;
-      }
-    }
-  }
+  // .sidenav {
+  // &__logo {
+  // width: 45%;
+  // & img {
+  // width: 100%;
+  // }
+  // }
+  // }
 }
 
 @media (max-width: 991.98px) {

@@ -3,8 +3,10 @@
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="150"
   (scrolled)="onScroll()"
-  (mouseenter)="hoverLog()"
 >
-  <app-article-item *ngFor="let article of articleCommentsList" [article]="article">
+  <app-article-item
+    *ngFor="let article of articleCommentsList"
+    [article]="article"
+  >
   </app-article-item>
 </div>

@@ -4,9 +4,9 @@ import { merge, Subject } from 'rxjs';
 import { finalize, take, takeUntil } from 'rxjs/operators';
 import { IArticle } from 'src/app/core/models/article.model';
 import { IArticlesDto } from 'src/app/core/models/articlesDto.model';
-import { ArticleService } from '../../article/article.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { IArticleComments } from 'src/app/core/models/article-comments.model';
+import { ArticleService } from 'src/app/pages/article/article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -49,9 +49,5 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._subject$.next();
     this._subject$.complete();
-  }
-
-  hoverLog(): void {
-    console.log(this.articleCommentsList);
   }
 }
