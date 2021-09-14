@@ -6,7 +6,7 @@ import { finalize, takeUntil } from 'rxjs/operators';
 import { IArticleComments } from 'src/app/core/models/article-comments.model';
 import { IArticle } from 'src/app/core/models/article.model';
 import { IArticlesDto } from 'src/app/core/models/articlesDto.model';
-import { IAuthor } from 'src/app/core/models/author.model';
+import { IProfile } from 'src/app/core/models/profile.model';
 import { ICommentsDto } from 'src/app/core/models/commentsDto.model';
 import { ArticleService } from '../article/article.service';
 
@@ -18,7 +18,7 @@ import { ArticleService } from '../article/article.service';
 export class HomeComponent implements OnInit, OnDestroy {
   focusMsg!: string;
   focusOutMsg!: string;
-  userData!: IAuthor;
+  userData!: IProfile;
   offset = 0;
   articleCommentsList!: IArticleComments[];
   private _articleList!: IArticle[];

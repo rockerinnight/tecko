@@ -42,11 +42,14 @@
         <button
           *ngIf="user?.following === true; else elseBlock"
           class="btn btn-outline-primary"
+          (click)="unFollowUser(user.username)"
         >
           Unfollow
         </button>
         <ng-template #elseBlock>
-          <button class="btn btn-primary">Follow</button>
+          <button class="btn btn-primary" (click)="followUser(user.username)">
+            Follow
+          </button>
         </ng-template>
       </div>
     </div>

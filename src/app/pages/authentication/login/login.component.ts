@@ -4,9 +4,10 @@ import { CONSTANT } from 'src/app/core/constants/constants';
 import { AuthService } from '../services/auth.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { ILoginDto } from 'src/app/core/models/loginDto.model';
+import { IUserLoginRequest } from 'src/app/core/models/user-login-request.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { IAuthResponse } from 'src/app/core/models/auth-user-response.model';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const loginDto: ILoginDto = {
+      const loginDto: IUserLoginRequest = {
         user: {
           email: this.loginForm.controls.email.value,
           password: this.loginForm.controls.password.value,
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         .login(loginDto)
         .pipe(takeUntil(this._subject$))
         .subscribe(
-          (res: any) => {
+          (res: IAuthResponse) => {
             this.authService.logUserIn(res);
             this.router.navigateByUrl('/');
           },

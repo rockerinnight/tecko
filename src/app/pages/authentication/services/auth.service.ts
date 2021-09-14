@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { CONSTANT } from 'src/app/core/constants/constants';
 import { Path } from 'src/app/core/constants/path.enum';
-import { ILoginDto } from 'src/app/core/models/loginDto.model';
-import { ISignUpDto } from 'src/app/core/models/signupDto.model';
-import { IUpdateDto } from 'src/app/core/models/updateDto.model';
+import { IUserLoginRequest } from 'src/app/core/models/user-login-request.model';
+import { IUserSignupRequest } from 'src/app/core/models/user-signup-request.model';
+import { IUserUpdateRequest } from 'src/app/core/models/user-update-request.model';
 import { IUser } from 'src/app/core/models/user.model';
-import { IUserDto } from 'src/app/core/models/userDto.model';
+import { IAuthResponse } from 'src/app/core/models/auth-user-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,8 +30,9 @@ export class AuthService {
     return !!this._localUser;
   }
 
-  logUserIn(userDto: IUserDto): void {
-    this._localUser = userDto.user;
+  logUserIn(authUser: IAuthResponse): void {
+    const { email, username, bio, image, token } = authUser.user;
+    this._localUser = { email, username, bio, image, token };
     localStorage.setItem('user', JSON.stringify(this._localUser));
   }
 
@@ -41,15 +42,15 @@ export class AuthService {
     this.router.navigateByUrl(`/${Path.LogIn}`);
   }
 
-  login(loginDto: ILoginDto): Observable<IUserDto> {
-    return this.http.post<IUserDto>(
+  login(loginDto: IUserLoginRequest): Observable<IAuthResponse> {
+    return this.http.post<IAuthResponse>(
       `${CONSTANT.URL.BASE_API}/${Path.Users}/${Path.LogIn}`,
       loginDto
     );
   }
 
-  signup(signupDto: ISignUpDto): Observable<IUserDto> {
-    return this.http.post<IUserDto>(
+  signup(signupDto: IUserSignupRequest): Observable<IAuthResponse> {
+    return this.http.post<IAuthResponse>(
       `${CONSTANT.URL.BASE_API}/${Path.Users}`,
       signupDto
     );
@@ -66,7 +67,7 @@ export class AuthService {
     return this._localUser;
   }
 
-  updateUser(updateDto: IUpdateDto): Observable<any> {
+  updateUser(updateDto: IUserUpdateRequest): Observable<any> {
     // Accepted fields: email, username, password, image, bio
     return this.http.put<any>(
       `${CONSTANT.URL.BASE_API}/${Path.User}`,

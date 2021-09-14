@@ -1,4 +1,4 @@
-export interface IUpdateDto {
+export interface IUserUpdateRequest {
   user: {
     email?: string;
     username?: string;

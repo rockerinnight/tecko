@@ -1,4 +1,4 @@
-export interface ISignUpDto {
+export interface IUserSignupRequest {
   user: {
     username: string;
     email: string;
