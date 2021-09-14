@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IProfile } from 'src/app/core/models/profile.model';
+import { IAuthor } from 'src/app/core/models/author.model';
 
 @Component({
   selector: 'app-user-card-list',
@@ -10,8 +10,8 @@ import { IProfile } from 'src/app/core/models/profile.model';
 })
 export class UserCardListComponent implements OnInit, OnDestroy {
   subject$ = new Subject();
-  obsData$!: Observable<IProfile[]>;
-  profileList!: IProfile[];
+  obsData$!: Observable<IAuthor[]>;
+  userList!: IAuthor[];
 
   constructor() {}
 
@@ -43,7 +43,7 @@ export class UserCardListComponent implements OnInit, OnDestroy {
       },
     ]);
     this.obsData$.pipe(takeUntil(this.subject$)).subscribe((res: any) => {
-      this.profileList = res;
+      this.userList = res;
     });
   }
 

@@ -1,27 +1,37 @@
 <section class="trend-item py-1">
-  <button
-    class="trend-button btn border w-100 text-left py-3 px-xl-4 px-lg-4"
-    (mouseover)="onHover = true"
-    (mouseout)="onHover = false"
-  >
-    <div class="trend-header font-weight-bold">Satan666</div>
-    <div class="trend-reputation">
-      <span class="trend-like" title="Get total of {{ likeCount }} hearts">
-        {{ likeCount }}
-        <i *ngIf="onHover; else esleBlockHeart" class="fa fa-heart"></i>
-        <ng-template #esleBlockHeart>
-          <i class="fa fa-heart-o"></i>
-        </ng-template>
+  <button class="trend-button btn border w-100 text-left py-3 px-xl-4 px-lg-4">
+    <div class="trend-header font-weight-bold mb-1">Satan666</div>
+    <div class="trend-reputation text-black-50">
+      <span class="trend-like pr-2">
+        <span
+          class="trend__icon"
+          title="Get total of {{ likeCount }} hearts"
+          (mouseenter)="onHover = true"
+          (mouseout)="onHover = false"
+        >
+          <i *ngIf="onHover; else elseBlockHeart" class="fa fa-heart"></i>
+          <ng-template #elseBlockHeart>
+            <i class="fa fa-heart-o"></i>
+          </ng-template>
+        </span>
+        <span class="trend__count">{{ likeCount }}</span>
       </span>
-      <span
-        class="trend-frequency"
-        title="Appeared across {{ articleCount }} teckikos"
-      >
-        {{ articleCount }}
-        <i *ngIf="onHover; else elseBlockPlane" class="fa fa-paper-plane"></i>
-        <ng-template #elseBlockPlane>
-          <i class="fa fa-paper-plane-o"></i>
-        </ng-template>
+      <span class="trend-frequency">
+        <span
+          class="trend__icon"
+          title="Appeared across {{ articleCount }} teckikos"
+          (mouseenter)="onHover2 = true"
+          (mouseout)="onHover2 = false"
+        >
+          <i
+            *ngIf="onHover2; else elseBlockPlane"
+            class="fa fa-paper-plane"
+          ></i>
+          <ng-template #elseBlockPlane>
+            <i class="fa fa-paper-plane-o"></i>
+          </ng-template>
+        </span>
+        <span class="trend__count">{{ articleCount }}</span>
       </span>
     </div>
   </button>

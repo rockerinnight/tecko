@@ -1,6 +1,6 @@
 export interface IAuthor {
   username: string;
-  bio: string;
-  image: string;
+  bio: null | string;
+  image: null | string;
   following: boolean;
 }

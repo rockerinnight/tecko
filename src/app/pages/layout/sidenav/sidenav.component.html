@@ -1,17 +1,6 @@
 <section class="sidenav">
   <div class="row">
     <div class="col-12 text-center">
-      <div class="sidenav__logo btn" routerLink="/{{ navMenu[0].path }}">
-        <img
-          src="./../../../../assets/logo.svg"
-          alt="Tecko Logo"
-          class="img-fluid"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 text-center">
       <div class="sidenav__menu btn border w-100">
         <button
           *ngFor="let navMenuItem of navMenu"
@@ -21,9 +10,9 @@
           class="
             sidenav__menu-item
             btn
+            w-100
             d-flex
             align-items-center
-            mx-auto
             p-xl-3 p-lg-3 p-md-3
             py-sm-3
             px-sm-2

@@ -1,9 +1,9 @@
 @import "./../../../shared/colors.scss";
 
 .trend-reputation {
-  color: $placeholder-dark;
-  & i {
-    color: $placeholder;
+  font-size: 0.8rem;
+  & .trend__count {
+    padding-left: 0.15rem;
   }
 }
 
@@ -13,7 +13,10 @@
       color: $primary;
     }
     .trend-reputation {
-      color: $placeholder;
+      color: $dark;
+      & .trend__icon {
+        color: $primary;
+      }
     }
     outline: 0;
     border-color: $border-hover !important;

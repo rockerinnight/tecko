@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Constants } from 'src/app/core/constants/constants';
+import { CONSTANT } from 'src/app/core/constants/constants';
 import { Path } from 'src/app/core/constants/path.enum';
 import { ILoginDto } from 'src/app/core/models/loginDto.model';
 import { ISignUpDto } from 'src/app/core/models/signupDto.model';
@@ -15,7 +15,7 @@ import { IUserDto } from 'src/app/core/models/userDto.model';
   providedIn: 'root',
 })
 export class AuthService {
-  private _localUser!: any;
+  private _localUser: IUser | null = null;
 
   constructor(
     private readonly http: HttpClient,
@@ -23,47 +23,54 @@ export class AuthService {
   ) {}
 
   isAuthenticated(): boolean {
-    const localUser = localStorage.getItem('user');
-    if (localUser) this._localUser = JSON.parse(localUser);
+    if (!this._localUser) {
+      const localUser = localStorage.getItem('user');
+      if (localUser != undefined) this._localUser = JSON.parse(localUser);
+    }
     return !!this._localUser;
   }
 
   logUserIn(userDto: IUserDto): void {
-    this._localUser = userDto;
-    localStorage.setItem('user', JSON.stringify(userDto));
+    this._localUser = userDto.user;
+    localStorage.setItem('user', JSON.stringify(this._localUser));
   }
 
   logout(): void {
     localStorage.removeItem('user');
+    this._localUser = null;
     this.router.navigateByUrl(`/${Path.LogIn}`);
   }
 
   login(loginDto: ILoginDto): Observable<IUserDto> {
     return this.http.post<IUserDto>(
-      `${Constants.API}/${Path.Users}/${Path.LogIn}`,
+      `${CONSTANT.URL.BASE_API}/${Path.Users}/${Path.LogIn}`,
       loginDto
     );
   }
 
   signup(signupDto: ISignUpDto): Observable<IUserDto> {
     return this.http.post<IUserDto>(
-      `${Constants.API}/${Path.Users}`,
+      `${CONSTANT.URL.BASE_API}/${Path.Users}`,
       signupDto
     );
   }
 
-  getUser(): IUser {
-    this.http
-      .get(`${Constants.API}/${Path.User}`)
-      .pipe(take(1))
-      .subscribe((res: any) => {
-        this._localUser = res.user;
-      });
+  getUser(): IUser | null {
+    if (!this._localUser)
+      this.http
+        .get(`${CONSTANT.URL.BASE_API}/${Path.User}`)
+        .pipe(take(1))
+        .subscribe((res: any) => {
+          this._localUser = res ? res.user : null;
+        });
     return this._localUser;
   }
 
   updateUser(updateDto: IUpdateDto): Observable<any> {
     // Accepted fields: email, username, password, image, bio
-    return this.http.put<any>(`${Constants.API}/${Path.User}`, updateDto);
+    return this.http.put<any>(
+      `${CONSTANT.URL.BASE_API}/${Path.User}`,
+      updateDto
+    );
   }
 }

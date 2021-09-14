@@ -2,7 +2,11 @@ export enum Path {
   // Generals
   Users = 'users',
   User = 'user',
-  Articles = 'articles',
+  Offset = 'offset',
+  Limit = 'limit',
+  Tag = 'tag',
+  Author = 'author',
+  Favorited = 'favorited',
 
   // Home
   Home = 'home',
@@ -18,6 +22,14 @@ export enum Path {
   LogIn = 'login',
   SignUp = 'sign-up',
   ForgotPassword = 'forgot-password',
+
+  // Articles
+  Feed = 'feed',
+  Articles = 'articles',
+
+  // Actions
+  Favorite = 'favorite',
+  Comments = 'comments',
 
   // Sessions
   NotFound = '404',

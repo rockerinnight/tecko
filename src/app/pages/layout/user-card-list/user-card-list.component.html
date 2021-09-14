@@ -4,8 +4,8 @@
       <span class="user-list__title">Popular Authors</span>
     </div>
     <app-user-card
-      *ngFor="let profile of profileList"
-      [profile]="profile"
+      *ngFor="let user of userList"
+      [user]="user"
       [layout]="'author'"
     ></app-user-card>
   </div>

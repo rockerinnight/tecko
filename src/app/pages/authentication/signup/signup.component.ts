@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ErrorResponse } from 'src/app/core/constants/constants';
+import { CONSTANT } from 'src/app/core/constants/constants';
 import { ISignUpDto } from 'src/app/core/models/signupDto.model';
 import { AuthService } from '../services/auth.service';
 
@@ -58,17 +58,17 @@ export class SignupComponent implements OnInit {
             console.log(e);
             if (e.error.errors) {
               if (e.error.errors.username) {
-                if (e.error.errors.username[0] === ErrorResponse.isTaken)
-                  console.error(`Username ${ErrorResponse.isTaken}!`);
-                if (e.error.errors.username[0] === ErrorResponse.isInvalid) {
-                  console.error(`Username ${ErrorResponse.isInvalid}!`);
+                if (e.error.errors.username[0] === CONSTANT.ERROR.RES.EXISTED)
+                  console.error(`Username ${CONSTANT.ERROR.RES.EXISTED}!`);
+                if (e.error.errors.username[0] === CONSTANT.ERROR.RES.INVALID) {
+                  console.error(`Username ${CONSTANT.ERROR.RES.INVALID}!`);
                 }
               }
               if (e.error.errors.email) {
-                if (e.error.errors.email[0] === ErrorResponse.isTaken)
-                  console.error(`Email ${ErrorResponse.isTaken}!`);
-                if (e.error.errors.email[0] === ErrorResponse.isInvalid)
-                  console.error(`Email ${ErrorResponse.isInvalid}!`);
+                if (e.error.errors.email[0] === CONSTANT.ERROR.RES.EXISTED)
+                  console.error(`Email ${CONSTANT.ERROR.RES.EXISTED}!`);
+                if (e.error.errors.email[0] === CONSTANT.ERROR.RES.INVALID)
+                  console.error(`Email ${CONSTANT.ERROR.RES.INVALID}!`);
               }
             }
           }

@@ -15,10 +15,7 @@
     class="user-card__wrapper btn border d-flex align-items-center w-100 p-2"
   >
     <div class="user-card__picture btn p-0">
-      <img
-        src="{{ profile?.image }}"
-        alt="{{ profile?.username }} 's picture"
-      />
+      <img src="{{ user?.image }}" alt="{{ user?.username }} 's picture" />
     </div>
     <div
       class="
@@ -32,13 +29,18 @@
     >
       <div class="user-card__info text-left d-xl-block d-lg-block d-none">
         <div class="user-card__alias font-weight-bold">
-          {{ profile?.username }}
+          {{ user?.username }}
         </div>
-        <div class="user-card__username">@{{ profile?.username }}</div>
+        <div class="user-card__username text-black-50">
+          @{{ user?.username }}
+        </div>
+      </div>
+      <div *ngIf="layout === 'user'" class="mr-2">
+        <i class="fa fa-ellipsis-h"></i>
       </div>
       <div *ngIf="layout === 'author'" class="info__follow-btn mt-1">
         <button
-          *ngIf="profile?.following === true; else elseBlock"
+          *ngIf="user?.following === true; else elseBlock"
           class="btn btn-outline-primary"
         >
           Unfollow
@@ -51,11 +53,11 @@
   </button>
 
   <button
-    *ngIf="layout === 'profile'"
+    *ngIf="layout === 'user'"
     class="dropdown-menu w-100 bg-white"
     [class.show]="onClick"
   >
-    <a class="dropdown-item text-dark" routerLink="/">Settings</a>
-    <a class="dropdown-item text-dark" routerLink="/">Log out</a>
+    <a class="dropdown-item" routerLink="/">Settings</a>
+    <a class="dropdown-item" routerLink="/">Log out</a>
   </button>
 </section>

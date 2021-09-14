@@ -1,7 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { IArticles } from 'src/app/core/models/articles.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { merge, Subject } from 'rxjs';
+import { finalize, take, takeUntil } from 'rxjs/operators';
+import { IArticle } from 'src/app/core/models/article.model';
+import { IArticlesDto } from 'src/app/core/models/articlesDto.model';
+import { ArticleService } from '../../article/article.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { IArticleComments } from 'src/app/core/models/article-comments.model';
 
 @Component({
   selector: 'app-article-list',
@@ -9,59 +14,44 @@ import { IArticles } from 'src/app/core/models/articles.model';
   styleUrls: ['./article-list.component.scss'],
 })
 export class ArticleListComponent implements OnInit, OnDestroy {
-  subject$ = new Subject();
-  obsData$!: Observable<any>;
-  articleList!: IArticles;
-  constructor() {}
+  private _subject$ = new Subject();
+  offset = 5;
+  @Input() articleCommentsList!: IArticleComments[];
 
-  ngOnInit(): void {
-    this.obsData$ = of({
-      articles: [
-        {
-          slug: 'how-to-train-your-dragon',
-          title: 'How to train your dragon',
-          description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae odio, eius minima harum veritatis labore.',
-          body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, maxime ea excepturi possimus fugiat dolor eligendi aspernatur at. Quae placeat quaerat possimus nesciunt repellendus ab quos temporibus in molestias, architecto vitae corrupti distinctio consectetur provident perferendis aliquid voluptate optio atque saepe quo blanditiis assumenda numquam, nostrum praesentium! Nam, illum accusantium.',
-          tagList: ['dragons', 'training'],
-          createdAt: '2016-02-18T03:22:56.637Z',
-          updatedAt: '2016-02-18T03:48:35.824Z',
-          favorited: false,
-          favoritesCount: 0,
-          author: {
-            username: 'jakethedog',
-            bio: 'I work at statefarm',
-            image: 'https://i.stack.imgur.com/xHWG8.jpg',
-            following: false,
-          },
-        },
-        {
-          slug: 'how-to-train-your-dragon-2',
-          title: 'How to train your dragon-2',
-          description: 'Lorem ipsum dolor sit amet.',
-          body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, aperiam.',
-          tagList: ['dragons', 'training'],
-          createdAt: '2016-02-18T03:22:56.637Z',
-          updatedAt: '2016-02-18T03:48:35.824Z',
-          favorited: true,
-          favoritesCount: 69,
-          author: {
-            username: 'jakethedog',
-            bio: 'I work at statefarm',
-            image: 'https://i.stack.imgur.com/xHWG8.jpg',
-            following: true,
-          },
-        },
-      ],
-      articlesCount: 2,
-    });
-    this.obsData$.pipe(takeUntil(this.subject$)).subscribe((res: any) => {
-      this.articleList = res;
-    });
+  constructor(
+    private readonly articleService: ArticleService,
+    private readonly spinner: NgxSpinnerService
+  ) {}
+
+  ngOnInit(): void {}
+
+  onScroll(): void {
+    // this.spinner.show();
+    // merge(
+    //   this.articleService.getArticlesFeed(this.offset, 5),
+    //   this.articleService.getArticlesGlobal(this.offset, 5)
+    // )
+    //   .pipe(
+    //     takeUntil(this._subject$),
+    //     finalize(() => this.spinner.hide())
+    //   )
+    //   .subscribe(
+    //     (articles: IArticlesDto) => {
+    //       this.articleList.push(...articles.articles);
+    //     },
+    //     (e: HttpErrorResponse) => {
+    //       console.log(e);
+    //     }
+    //   );
+    // this.offset += 5;
   }
 
   ngOnDestroy(): void {
-    this.subject$.next();
-    this.subject$.complete();
+    this._subject$.next();
+    this._subject$.complete();
+  }
+
+  hoverLog(): void {
+    console.log(this.articleCommentsList);
   }
 }
