@@ -1,4 +1,4 @@
-import { IAuthor } from './author.model';
+import { IProfile } from './profile.model';
 import { IComment } from './comment.model';
 
 export interface IArticleComments {
@@ -11,6 +11,6 @@ export interface IArticleComments {
   updatedAt: string;
   favorited: boolean;
   favoritesCount: number;
-  author: IAuthor;
+  author: IProfile;
   comments: IComment[];
 }

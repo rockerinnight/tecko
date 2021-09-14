@@ -27,34 +27,34 @@ export class ArticleItemComponent implements OnInit {
     this.onClick = !this.onClick;
   }
 
-  reactArticle(article: IArticleComments): void {
-    if (!article.favorited) {
-      this.articleService
-        .setFavorite(article.slug)
-        .pipe(take(1))
-        .subscribe(
-          (_) => {
-            this.article.favorited = !this.article.favorited;
-            this.article.favoritesCount++;
-          },
-          (e: HttpErrorResponse) => {
-            console.log(e);
-          }
-        );
-    } else {
-      this.articleService
-        .setUnFavorite(article.slug)
-        .pipe(take(1))
-        .subscribe(
-          (_) => {
-            this.article.favorited = !this.article.favorited;
-            this.article.favoritesCount--;
-          },
-          (e: HttpErrorResponse) => {
-            console.log(e);
-          }
-        );
-    }
+  favoriteArticle(articleSlug: string): void {
+    this.articleService
+      .setFavorite(articleSlug)
+      .pipe(take(1))
+      .subscribe(
+        (_) => {
+          this.article.favorited = !this.article.favorited;
+          this.article.favoritesCount++;
+        },
+        (e: HttpErrorResponse) => {
+          console.log(e);
+        }
+      );
+  }
+
+  unFavoriteArticle(articleSlug: string): void {
+    this.articleService
+      .setUnFavorite(articleSlug)
+      .pipe(take(1))
+      .subscribe(
+        (_) => {
+          this.article.favorited = !this.article.favorited;
+          this.article.favoritesCount--;
+        },
+        (e: HttpErrorResponse) => {
+          console.log(e);
+        }
+      );
   }
 
   openCommentList(article: IArticleComments): void {}

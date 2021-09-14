@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IAuthor } from 'src/app/core/models/author.model';
+import { IProfile } from 'src/app/core/models/profile.model';
 
 @Component({
   selector: 'app-user-card-list',
@@ -10,8 +10,8 @@ import { IAuthor } from 'src/app/core/models/author.model';
 })
 export class UserCardListComponent implements OnInit, OnDestroy {
   subject$ = new Subject();
-  obsData$!: Observable<IAuthor[]>;
-  userList!: IAuthor[];
+  obsData$!: Observable<IProfile[]>;
+  userList!: IProfile[];
 
   constructor() {}
 

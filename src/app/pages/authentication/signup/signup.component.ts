@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CONSTANT } from 'src/app/core/constants/constants';
-import { ISignUpDto } from 'src/app/core/models/signupDto.model';
+import { IUserSignupRequest } from 'src/app/core/models/user-signup-request.model';
+import { IAuthResponse } from 'src/app/core/models/auth-user-response.model';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     if (this.signupForm.valid) {
-      const signupDto: ISignUpDto = {
+      const signupDto: IUserSignupRequest = {
         user: {
           username: this.signupForm.controls.username.value,
           email: this.signupForm.controls.email.value,
@@ -50,9 +51,8 @@ export class SignupComponent implements OnInit {
         .signup(signupDto)
         .pipe(takeUntil(this._subject$))
         .subscribe(
-          (res: any) => {
-            console.log(res);
-            this.authService.logUserIn(res.user);
+          (res: IAuthResponse) => {
+            this.authService.logUserIn(res);
           },
           (e: HttpErrorResponse) => {
             console.log(e);

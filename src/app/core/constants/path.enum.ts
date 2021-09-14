@@ -27,6 +27,10 @@ export enum Path {
   Feed = 'feed',
   Articles = 'articles',
 
+  // Profiles
+  Profiles = 'profiles',
+  Follow = 'follow',
+
   // Actions
   Favorite = 'favorite',
   Comments = 'comments',

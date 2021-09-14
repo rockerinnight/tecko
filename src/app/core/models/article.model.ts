@@ -1,4 +1,4 @@
-import { IAuthor } from './author.model';
+import { IProfile } from './profile.model';
 
 export interface IArticle {
   slug: string;
@@ -10,5 +10,5 @@ export interface IArticle {
   updatedAt: string;
   favorited: boolean;
   favoritesCount: number;
-  author: IAuthor;
+  author: IProfile;
 }

@@ -95,13 +95,17 @@
           (mouseover)="onHover = true"
           (mouseout)="onHover = false"
         >
-          <span class="action__icon" (click)="reactArticle(article)">
+          <span class="action__icon">
             <i
               *ngIf="onHover || article.favorited; else elseHeart"
               class="fa fa-heart"
+              (click)="favoriteArticle(article.slug)"
             ></i>
             <ng-template #elseHeart>
-              <i class="fa fa-heart-o"></i>
+              <i
+                class="fa fa-heart-o"
+                (click)="unFavoriteArticle(article.slug)"
+              ></i>
             </ng-template>
           </span>
           <span class="action__count">
