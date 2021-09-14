@@ -1,10 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { CONSTANT } from 'src/app/core/constants/constants';
 import { IArticleComments } from 'src/app/core/models/article-comments.model';
-import { IArticle } from 'src/app/core/models/article.model';
-import { ArticleService } from '../../article/article.service';
+import { ArticleService } from 'src/app/pages/article/article.service';
 
 @Component({
   selector: 'app-article-item',

@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth.interceptor';
+import { AuthInterceptor } from './core/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

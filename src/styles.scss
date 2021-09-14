@@ -12,7 +12,7 @@ $enable-caret: true;
 $enable-shadows: false;
 $enable-gradients: false;
 $enable-grid-classes: false;
-@import "./app/shared/colors.scss";
+@import "src/app/shared/colors.scss";
 /* Customize Quill Editor Snow */
 .ql-container {
   font-family: $font-family-base;

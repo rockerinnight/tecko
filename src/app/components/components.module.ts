@@ -11,7 +11,7 @@ import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserCardComponent } from './user-card/user-card.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
-import { TruncatePipe } from 'src/app/shared/truncate.pipe';
+import { TruncatePipe } from '../shared/truncate.pipe';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { UserCardListComponent } from './user-card-list/user-card-list.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -45,4 +45,4 @@ const componentList = [
   exports: [...componentList],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class LayoutModule {}
+export class ComponentsModule {}
