@@ -9,6 +9,7 @@ export class TrendItemComponent implements OnInit {
   articleCount = 666;
   likeCount = 1000;
   onHover = false;
+  onHover2 = false;
 
   constructor() {}
 

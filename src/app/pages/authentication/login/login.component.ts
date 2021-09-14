@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ErrorResponse } from 'src/app/core/constants/constants';
+import { CONSTANT } from 'src/app/core/constants/constants';
 import { AuthService } from '../services/auth.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -44,17 +44,19 @@ export class LoginComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this._subject$))
         .subscribe(
           (res: any) => {
-            console.log(res);
-            this.authService.logUserIn(res.user);
+            this.authService.logUserIn(res);
             this.router.navigateByUrl('/');
           },
           (e: HttpErrorResponse) => {
             if (
               e.error.errors &&
               e.error.errors['email or password'] &&
-              e.error.errors['email or password'][0] === ErrorResponse.isInvalid
+              e.error.errors['email or password'][0] ===
+                CONSTANT.ERROR.RES.INVALID
             ) {
-              console.error(`Username or Password ${ErrorResponse.isInvalid}!`);
+              console.error(
+                `Username or Password ${CONSTANT.ERROR.RES.INVALID}!`
+              );
             }
           }
         );

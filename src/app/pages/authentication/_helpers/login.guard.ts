@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, CanActivate, Router, UrlTree } from '@angular/router';
+import { CanActivate, Router, UrlTree } from '@angular/router';
 import { Path } from 'src/app/core/constants/path.enum';
 import { AuthService } from '../services/auth.service';
 
@@ -12,10 +12,8 @@ export class LoginGuard implements CanActivate {
     private readonly router: Router
   ) {}
   canActivate(): boolean | UrlTree {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl(`/${Path.Home}`);
-      return false;
-    }
+    if (this.authService.isAuthenticated())
+      return this.router.parseUrl(`/${Path.Home}`);
     return true;
   }
 }

@@ -2,10 +2,7 @@
 
 .trend-list {
   &__wrapper {
-    pointer-events: none;
-    & > * {
-      pointer-events: all;
-    }
+    cursor: default !important;
   }
   &__title {
     font-size: calc(1.3rem + 0.2vw);
