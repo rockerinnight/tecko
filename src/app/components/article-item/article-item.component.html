@@ -21,7 +21,7 @@
         "
       >
         <div class="left-col">
-          <div class="info__username font-weight-bold pl-1">
+          <div class="info__username font-weight-bold">
             <a href="#" class="text-dark">{{ article.author?.username }}</a>
           </div>
           <div class="article-item-content__update-date">
@@ -29,10 +29,17 @@
           </div>
         </div>
         <div class="right-col">
-          <div class="mr-2 mt-1 dropdown">
-            <i class="fa fa-ellipsis-h text-black-50"></i>
+          <div class="mr-1 dropdown">
             <button
-              class="dropdown-menu dropdown-menu-right bg-white"
+              class="btn border-0"
+              [class.show]="onClick"
+              (click)="toggleDropdown()"
+              (focusout)="onClick = false"
+            >
+              <i class="fa fa-ellipsis-h text-black-50"></i>
+            </button>
+            <button
+              class="dropdown-menu dropdown-menu-right"
               [class.show]="onClick"
             >
               <a class="dropdown-item disabled" routerLink="/">Reteck</a>
@@ -54,28 +61,28 @@
       </div>
     </div>
     <div class="article-item-content p-2">
+      <div class="article-item-content__read-time my-2">
+        <span class="text-black-50">5 min read</span>
+      </div>
       <div class="article-item-content__title">
-        <a href="#" class="h4">
+        <a href="#" class="h5">
           {{ article.title }}
         </a>
       </div>
-      <div class="article-item-content__description">
-        <p class="font-italic text-black-50">
+      <div class="article-item-content__description mb-1">
+        <span class="font-italic text-black-50">
           {{ article.description | truncate: 60 || "" }}
-        </p>
+        </span>
       </div>
-      <div class="article-item-content__body">
-        <p class="m-0">
+      <div class="article-item-content__body mb-2">
+        <span>
           {{ article.body | truncate: 200 || "" }}
-        </p>
+        </span>
         <a
           *ngIf="article.body.length > 200"
           routerLink="/articles/{{ article.slug }}"
+          >Read more</a
         >
-          <span>Read more</span>
-          &nbsp;&SmallCircle;&nbsp;
-          <span>5 min read</span>
-        </a>
       </div>
     </div>
     <div
@@ -92,12 +99,12 @@
       <div class="article-item-actions">
         <span
           class="action__like pr-2"
-          (mouseover)="onHover = true"
-          (mouseout)="onHover = false"
+          (mouseover)="heartOnHover = true"
+          (mouseout)="heartOnHover = false"
         >
           <span class="action__icon">
             <i
-              *ngIf="onHover || article.favorited; else elseHeart"
+              *ngIf="heartOnHover || article.favorited; else elseHeart"
               class="fa fa-heart"
               (click)="favoriteArticle(article.slug)"
             ></i>
@@ -114,11 +121,14 @@
         </span>
         <span
           class="action_comment"
-          (mouseover)="onHover2 = true"
-          (mouseout)="onHover2 = false"
+          (mouseover)="commentOnHover = true"
+          (mouseout)="commentOnHover = false"
         >
           <span class="action__icon" (click)="openCommentList(article)">
-            <i *ngIf="onHover2; else elseComment" class="fa fa-commenting"></i>
+            <i
+              *ngIf="commentOnHover; else elseComment"
+              class="fa fa-commenting"
+            ></i>
             <ng-template #elseComment>
               <i class="fa fa-commenting-o"></i>
             </ng-template>

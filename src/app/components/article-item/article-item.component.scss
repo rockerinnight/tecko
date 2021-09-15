@@ -11,14 +11,12 @@
     border-radius: 50%;
   }
   &-content {
+    &__read-time,
     &__update-date a {
       font-size: 0.8rem;
       &:hover {
         color: $dark;
       }
-    }
-    &__body a {
-      font-size: 0.8rem;
     }
   }
   &-footer {
@@ -31,10 +29,14 @@
   }
 }
 
-// .info__follow-btn button {
-//   font-size: 0.8rem;
-//   padding: 0.2em 0.5em;
-// }
+.info__username {
+  line-height: 1rem;
+}
+
+.info__follow-btn button {
+  font-size: 0.7rem;
+  padding: 0em 0.5em;
+}
 
 .dropdown-item:hover {
   color: $light !important;
