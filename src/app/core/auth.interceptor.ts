@@ -26,6 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
             Authorization: 'Token ' + token,
             'Content-Type': 'application/json; charset=utf-8',
             'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
           }),
         });
         return next.handle(authRequest);

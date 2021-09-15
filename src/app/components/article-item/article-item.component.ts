@@ -12,8 +12,9 @@ import { ArticleService } from 'src/app/pages/article/article.service';
 })
 export class ArticleItemComponent implements OnInit {
   @Input() article!: IArticleComments;
-  onHover = false;
-  onHover2 = false;
+  heartOnHover = false;
+  commentOnHover = false;
+  profileImageOnHover = false;
   onClick = false;
 
   constructor(private readonly articleService: ArticleService) {}
