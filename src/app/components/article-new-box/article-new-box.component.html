@@ -1,6 +1,10 @@
 <section class="article-new-box pb-1">
   <div class="article-new-box__wrapper btn border w-100 text-left p-4">
-    <input id="new-box-overlay" class="h-100 w-100 position-absolute" (focusout)="onFocusOut()"/>
+    <input
+      id="new-box-overlay"
+      class="h-100 w-100 position-absolute"
+      (focusout)="onFocusOut()"
+    />
     <form [formGroup]="editorForm">
       <quill-editor
         formControlName="editorContent"
@@ -14,13 +18,21 @@
       >
         <div quill-editor-toolbar>
           <span class="ql-formats">
-            <button class="ql-blockquote"></button>
-            <button class="ql-code-block"></button>
+            <button class="ql-bold" [title]="'Bold'"></button>
           </span>
           <span class="ql-formats">
-            <button class="ql-link"></button>
-            <button class="ql-image"></button>
-            <button class="ql-video"></button>
+            <select class="ql-align" [title]="'Alignment'">
+              <option selected></option>
+              <option value="center"></option>
+              <option value="right"></option>
+              <option value="justify"></option>
+            </select>
+            <select class="ql-align" [title]="'Alignment2'">
+              <option selected></option>
+              <option value="center"></option>
+              <option value="right"></option>
+              <option value="justify"></option>
+            </select>
           </span>
         </div>
       </quill-editor>
@@ -36,14 +48,9 @@
       "
     >
       <span>{{ contentLength }}</span>
-      <button class="btn btn-primary px-4 py-2" (click)="onSubmit()" disabled>
+      <button class="btn btn-primary px-4 py-2" (click)="onSubmit()">
         Tecko
       </button>
     </div>
   </div>
 </section>
-<!-- <quill-view
-  [content]="editorForm.controls.editorContent.value"
-  format="html"
-  theme="snow"
-></quill-view> -->

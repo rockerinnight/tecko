@@ -8,7 +8,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, HomeRoutingModule, ComponentsModule, NgxSpinnerModule],
-  exports: [HomeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}

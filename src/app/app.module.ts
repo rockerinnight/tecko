@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

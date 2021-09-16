@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Path } from 'src/app/core/constants/path.enum';
 
 @Component({
   selector: 'app-article-new-button',
@@ -6,12 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./article-new-button.component.scss'],
 })
 export class ArticleNewButtonComponent implements OnInit {
-  @Output() msgSender = new EventEmitter();
-  constructor() {}
+  constructor(private readonly router: Router) {}
 
   ngOnInit(): void {}
 
-  sendFocus(): void {
-    this.msgSender.emit('onFocus');
+  navigateToArticleNew():void{
+    this.router.navigateByUrl(`/${Path.Articles}/${Path.New}`)
   }
 }

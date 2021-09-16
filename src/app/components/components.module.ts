@@ -11,12 +11,13 @@ import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserCardComponent } from './user-card/user-card.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
-import { TruncatePipe } from '../shared/truncate.pipe';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { UserCardListComponent } from './user-card-list/user-card-list.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LogoComponent } from './logo/logo.component';
+import { ArticleLoadingComponent } from './article-loading/article-loading.component';
+import { SharedModule } from '../shared/shared.module';
 
 const componentList = [
   SidenavComponent,
@@ -29,11 +30,12 @@ const componentList = [
   ArticleItemComponent,
   ArticleListComponent,
   UserCardListComponent,
+  ArticleLoadingComponent,
   LogoComponent,
 ];
 
 @NgModule({
-  declarations: [...componentList, TruncatePipe],
+  declarations: [...componentList],
   imports: [
     CommonModule,
     RouterModule,
@@ -41,6 +43,7 @@ const componentList = [
     QuillModule,
     InfiniteScrollModule,
     NgxSpinnerModule,
+    SharedModule,
   ],
   exports: [...componentList],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

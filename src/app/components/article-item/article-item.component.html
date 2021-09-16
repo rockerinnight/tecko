@@ -36,7 +36,7 @@
               (click)="toggleDropdown()"
               (focusout)="onClick = false"
             >
-              <i class="fa fa-ellipsis-h text-black-50"></i>
+              <i class="fa fa-ellipsis-h"></i>
             </button>
             <button
               class="dropdown-menu dropdown-menu-right"
@@ -75,9 +75,14 @@
         </span>
       </div>
       <div class="article-item-content__body mb-2">
-        <span>
+        <quill-view
+          [content]="article.body"
+          format="html"
+          theme="snow"
+        ></quill-view>
+        <!-- <span>
           {{ article.body | truncate: 200 || "" }}
-        </span>
+        </span> -->
         <a
           *ngIf="article.body.length > 200"
           routerLink="/articles/{{ article.slug }}"

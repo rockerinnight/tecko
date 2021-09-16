@@ -505,10 +505,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     //   );
   }
 
-  hoverLog(): void {
-    console.log(this.articleCommentsList);
-  }
-
   msgCatcher(e: string): void {
     if (e) this.focusMsg = e;
   }

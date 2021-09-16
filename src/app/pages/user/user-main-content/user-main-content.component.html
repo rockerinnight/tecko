@@ -1,0 +1,38 @@
+<section class="user">
+  <header class="user__header row">
+    <div class="col position-relative">
+      <div class="img-wrapper">
+        <img
+          class="w-100 rounded"
+          src="{{ profileData.image }}"
+          alt=""
+        />
+      </div>
+      <div class="img-wrapper position-absolute bg-white rounded-circle p-3">
+        <img
+          class="img-fluid rounded-circle"
+          src="{{ profileData.image }}"
+          alt=""
+        />
+      </div>
+      <div class="user__name position-absolute">
+        <a class="h3" href="#">{{ profileData.username }}</a>
+      </div>
+      <div class="user__bio position-absolute">
+        <span class="text-black-50">{{ profileData.bio }}</span>
+      </div>
+    </div>
+  </header>
+  <main class="user__main row">
+    <div class="col-3">
+      <app-user-card-list></app-user-card-list>
+      <app-user-card-list></app-user-card-list>
+    </div>
+    <div class="col-9">
+      <app-article-list
+        [articleCommentsList]="articleCommentsList"
+      ></app-article-list>
+      <app-article-loading></app-article-loading>
+    </div>
+  </main>
+</section>

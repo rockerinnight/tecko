@@ -14,9 +14,7 @@
           <app-search-box></app-search-box>
           <app-sidenav></app-sidenav>
           <div class="pt-2">
-            <app-article-new-button
-              (msgSender)="msgCatcher($event)"
-            ></app-article-new-button>
+            <app-article-new-button></app-article-new-button>
           </div>
         </div>
         <div class="col-12">
@@ -33,26 +31,14 @@
         position-absolute
       "
     >
-      <app-article-new-box
+      <!-- <app-article-new-box
         [msgGetter]="focusMsg"
         (msgSender)="msgCatcher($event)"
-      ></app-article-new-box>
+      ></app-article-new-box> -->
       <app-article-list
         [articleCommentsList]="articleCommentsList"
       ></app-article-list>
-      <div
-        id="article-list-container"
-        class="position-relative btn w-100 mt-1 mb-5"
-      >
-        <ngx-spinner
-          [fullScreen]="false"
-          size="medium"
-          type="ball-spin-clockwise"
-          color="#bb85fc"
-          bdColor="rgba(0, 0, 0, 0)"
-        >
-        </ngx-spinner>
-      </div>
+      <app-article-loading></app-article-loading>
     </div>
     <div
       class="

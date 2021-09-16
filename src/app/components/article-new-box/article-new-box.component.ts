@@ -43,6 +43,7 @@ export class ArticleNewBoxComponent implements OnInit, OnChanges {
 
   onSubmit(): void {
     this.contentData = this.editorForm.controls.editorContent.value;
+    console.log(this.contentData);
   }
 
   onFocusOut(): void {
