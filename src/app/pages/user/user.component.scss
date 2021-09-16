@@ -1,0 +1,19 @@
+.container-fluid {
+  height: 100vh;
+}
+.left-col {
+  left: 0;
+  overflow: auto;
+  direction: rtl;
+  & * {
+    direction: ltr;
+  }
+}
+.mid-col {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.right-col {
+  right: 0;
+  overflow: auto;
+}

@@ -15,7 +15,11 @@
     (focusout)="onClick = false"
   >
     <div class="user-card__picture btn p-0">
-      <img src="{{ user?.image }}" alt="{{ user?.username }} 's picture" />
+      <img
+        class="rounded-circle"
+        src="{{ user?.image }}"
+        alt="{{ user?.username }} 's picture"
+      />
     </div>
     <div
       class="

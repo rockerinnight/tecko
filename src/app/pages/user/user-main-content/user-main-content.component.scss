@@ -1,0 +1,32 @@
+.user__header {
+  & .img-wrapper:first-child {
+    & img {
+      height: 20rem;
+      object-fit: cover;
+    }
+  }
+  & .img-wrapper:nth-child(2) {
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    & img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+  & .user__name {
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  & .user__bio {
+    bottom: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.user__main {
+  margin-top: 8rem;
+}
