@@ -12,14 +12,15 @@ import { UserService } from 'src/app/pages/user/user.service';
   styleUrls: ['./user-card.component.scss'],
 })
 export class UserCardComponent implements OnInit {
-  @Input() layout!: string;
-  @Input() user!: IProfile;
+  @Input() userCardLayout!: string;
+  @Input() profile!: IProfile;
   onClick = false;
 
   constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-    if (!this.user?.image) this.user.image = CONSTANT.URL.DEFAULT_PICTURE;
+    if (this.profile && !this.profile?.image)
+      this.profile.image = CONSTANT.URL.DEFAULT_PICTURE;
   }
 
   toggleDropdown(): void {
@@ -31,7 +32,7 @@ export class UserCardComponent implements OnInit {
       .followUser(username)
       .pipe(take(1))
       .subscribe(
-        (_) => (this.user.following = !this.user.following),
+        (_) => (this.profile.following = !this.profile.following),
         (e: HttpErrorResponse) => {
           console.log(e);
         }
@@ -43,7 +44,7 @@ export class UserCardComponent implements OnInit {
       .unFollowUser(username)
       .pipe(take(1))
       .subscribe(
-        (_) => (this.user.following = !this.user.following),
+        (_) => (this.profile.following = !this.profile.following),
         (e: HttpErrorResponse) => {
           console.log(e);
         }

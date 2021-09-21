@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IProfile } from 'src/app/core/models/profile.model';
@@ -9,9 +9,11 @@ import { IProfile } from 'src/app/core/models/profile.model';
   styleUrls: ['./user-card-list.component.scss'],
 })
 export class UserCardListComponent implements OnInit, OnDestroy {
+  @Input() userListTitle!: string;
+  @Input() userCardLayout!: string;
   subject$ = new Subject();
   obsData$!: Observable<IProfile[]>;
-  userList!: IProfile[];
+  profiles!: IProfile[];
 
   constructor() {}
 
@@ -43,7 +45,7 @@ export class UserCardListComponent implements OnInit, OnDestroy {
       },
     ]);
     this.obsData$.pipe(takeUntil(this.subject$)).subscribe((res: any) => {
-      this.userList = res;
+      this.profiles = res;
     });
   }
 

@@ -1,16 +1,9 @@
 @import "src/app/shared/colors.scss";
 
 .sidenav {
-  &__logo {
-    padding: 1rem !important;
-    margin: 1.25rem auto 1.25rem auto;
-    & img {
-      width: 4.5rem;
-    }
-  }
   &__menu {
     &-item {
-      & * {
+      & i {
         font-size: calc(1.3em + 0.2vw);
       }
       &-icon {
@@ -28,27 +21,14 @@
 
 .sidenav__menu-item:hover {
   color: $light !important;
-  background-color: $placeholder;
+  background-color: $primary;
 }
 
 @media (max-width: 1199.98px) {
-  // .sidenav {
-  // &__logo {
-  // width: 45%;
-  // & img {
-  // width: 100%;
-  // }
-  // }
-  // }
 }
 
 @media (max-width: 991.98px) {
   .sidenav {
-    &__logo {
-      // width: 70%;
-      padding: 0.75em !important;
-      margin: 0.75em auto 1.25em auto;
-    }
     &__menu-item {
       margin: 0 auto;
       &-title {
@@ -64,11 +44,7 @@
 @media (max-width: 767.98px) {
   .sidenav {
     flex-direction: row !important;
-    &__logo {
-      display: none;
-    }
     &__menu {
-      // flex: 5;
       display: flex;
     }
   }

@@ -31,3 +31,11 @@
   color: $light !important;
   background-color: $border-hover;
 }
+
+@media (max-width: 991.98px) {
+  .user-card {
+    &__wrapper {
+      width: auto !important;
+    }
+  }
+}

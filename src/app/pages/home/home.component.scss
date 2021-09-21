@@ -26,6 +26,10 @@
 }
 
 @media (max-width: 991.98px) {
+  .mid-col {
+    left: 40%;
+    transform: translateX(-40%);
+  }
 }
 
 @media (max-width: 767.98px) {

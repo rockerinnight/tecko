@@ -3,13 +3,23 @@
     user-card
     dropup
     d-flex
-    justify-content-between
+    justify-content-lg-between justify-content-center
     align-items-center
     py-1
   "
+  title="{{ profile?.username }}"
 >
   <button
-    class="user-card__wrapper btn d-flex align-items-center w-100 p-2"
+    [class.w-100]="userCardLayout !== 'profile-short'"
+    [class.border]="userCardLayout === 'user'"
+    class="
+      user-card__wrapper
+      btn
+      d-flex
+      justify-content-center
+      align-items-center
+      p-2
+    "
     [class.show]="onClick"
     (click)="toggleDropdown()"
     (focusout)="onClick = false"
@@ -17,41 +27,48 @@
     <div class="user-card__picture btn p-0">
       <img
         class="rounded-circle"
-        src="{{ user?.image }}"
-        alt="{{ user?.username }} 's picture"
+        src="{{ profile?.image }}"
+        alt="{{ profile?.username }} 's picture"
       />
     </div>
     <div
+      *ngIf="userCardLayout !== 'profile-short'"
       class="
         w-100
-        d-flex
+        d-lg-flex d-none
         justify-content-between
         align-items-center
         flex-wrap
         ml-xl-2 ml-lg-2
       "
     >
-      <div class="user-card__info text-left d-xl-block d-lg-block d-none">
+      <div class="user-card__info text-left d-xl-block d-lg-block">
         <div class="user-card__alias font-weight-bold">
-          {{ user?.username }}
+          {{ profile?.username }}
         </div>
         <div class="user-card__username text-black-50">
-          @{{ user?.username }}
+          @{{ profile?.username }}
         </div>
       </div>
-      <div *ngIf="layout === 'user'" class="mr-2">
+      <div *ngIf="userCardLayout === 'user'" class="mr-2">
         <i class="fa fa-ellipsis-h"></i>
       </div>
-      <div *ngIf="layout === 'author'" class="info__follow-btn mt-1">
+      <div
+        *ngIf="userCardLayout === 'profile-long'"
+        class="info__follow-btn mt-1"
+      >
         <button
-          *ngIf="user?.following === true; else elseBlock"
+          *ngIf="profile?.following === true; else elseBlock"
           class="btn btn-outline-primary"
-          (click)="unFollowUser(user.username)"
+          (click)="unFollowUser(profile.username)"
         >
           Unfollow
         </button>
         <ng-template #elseBlock>
-          <button class="btn btn-primary" (click)="followUser(user.username)">
+          <button
+            class="btn btn-primary"
+            (click)="followUser(profile.username)"
+          >
             Follow
           </button>
         </ng-template>
@@ -60,7 +77,7 @@
   </button>
 
   <button
-    *ngIf="layout === 'user'"
+    *ngIf="userCardLayout === 'user'"
     class="dropdown-menu w-100"
     [class.show]="onClick"
   >

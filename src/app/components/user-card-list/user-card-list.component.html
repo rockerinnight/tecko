@@ -1,12 +1,14 @@
 <section class="user-list mb-2">
-  <div class="user-list__wrapper btn border p-xl-2 p-1 pb-3 w-100">
-    <div class="h4 text-primary text-left ml-lg-3 mt-3 mb-4">
-      <span class="user-list__title">Popular Authors</span>
+  <div class="user-list__wrapper btn border p-xl-2 pb-3 p-1 w-100">
+    <div class="text-lg-left text-center m-3 mr-lg-0">
+      <span class="user-list__title h4 text-primary">{{ userListTitle }}</span>
     </div>
-    <app-user-card
-      *ngFor="let user of userList"
-      [user]="user"
-      [layout]="'author'"
-    ></app-user-card>
+    <div class="d-flex flex-wrap">
+      <app-user-card
+        *ngFor="let profile of profiles"
+        [profile]="profile"
+        [userCardLayout]="userCardLayout"
+      ></app-user-card>
+    </div>
   </div>
 </section>

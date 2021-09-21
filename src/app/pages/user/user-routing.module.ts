@@ -12,6 +12,16 @@ const routes: Routes = [
   {
     path: ':username',
     component: UserComponent,
+    children: [
+      {
+        path: Path.Articles,
+        component: UserComponent,
+      },
+      {
+        path: `${Path.Articles}-favorited`,
+        component: UserComponent,
+      },
+    ],
   },
 ];
 

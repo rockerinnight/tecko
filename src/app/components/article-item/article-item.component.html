@@ -1,4 +1,4 @@
-<section class="article-item py-1">
+<section class="article-item pb-2">
   <div class="btn w-100 text-left border px-3 py-2">
     <div class="article-item-author d-flex align-items-center">
       <div class="article-item-author__picture">
@@ -94,14 +94,13 @@
       class="
         article-item-footer
         d-flex
-        align-items-center
         justify-content-between
         text-primary
         flex-wrap
         p-2
       "
     >
-      <div class="article-item-actions">
+      <div class="article-item-actions col-3 p-0">
         <span
           class="action__like pr-2"
           (mouseover)="heartOnHover = true"
@@ -143,10 +142,10 @@
           </span>
         </span>
       </div>
-      <div class="tag-list">
+      <div class="tag-list col-9 d-flex flex-wrap justify-content-end p-0">
         <span
           *ngFor="let tagItem of article.tagList"
-          class="tag-list__item px-1"
+          class="tag-list__item px-1 pb-1"
         >
           <button class="btn border text-primary">
             {{ tagItem }}

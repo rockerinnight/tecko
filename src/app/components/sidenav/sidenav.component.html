@@ -1,10 +1,10 @@
 <section class="sidenav">
   <div class="row">
     <div class="col-12 text-center">
-      <div class="sidenav__menu btn w-100">
+      <div class="sidenav__menu btn w-100 px-0">
         <button
           *ngFor="let navMenuItem of navMenu"
-          [title]="navMenuItem.title"
+          title="{{ navMenuItem.title }}"
           routerLink="{{ navMenuItem.path }}"
           routerLinkActive="active"
           class="
@@ -12,21 +12,21 @@
             btn
             w-100
             d-flex
+            justify-content-lg-start justify-content-center
             align-items-center
-            p-xl-3 p-lg-3 p-md-3
-            py-sm-3
-            px-sm-2
             py-3
-            px-1
           "
+          [class.justify-content-lg-center]="sidenavLayout === 'profile'"
         >
           <i
             class="sidenav__menu-item-icon fa"
             [ngClass]="navMenuItem.icon"
           ></i>
-          <span class="sidenav__menu-item-title h4 m-0">{{
-            navMenuItem.title
-          }}</span>
+          <span
+            *ngIf="sidenavLayout !== 'profile'"
+            class="sidenav__menu-item-title h4 m-0"
+            >{{ navMenuItem.title }}</span
+          >
         </button>
       </div>
     </div>

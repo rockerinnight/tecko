@@ -1,21 +1,30 @@
 <div class="container-fluid">
   <div class="row mt-3">
-    <div class="left-col col-2 h-100 position-fixed">
-      <app-logo></app-logo>
-      <app-sidenav></app-sidenav>
-    </div>
-    <div class="mid-col col-8">
-      <app-user-main-content
-        [profileData]="userData"
-        [articleCommentsList]="articleCommentsList"
-      ></app-user-main-content>
-    </div>
-    <div class="right-col col-2 h-100 position-fixed">
-      <app-article-new-button></app-article-new-button>
-      <app-article-new-button></app-article-new-button>
+    <div class="left-col col-1 h-100 position-fixed px-1 ml-1">
+      <!-- <app-logo></app-logo> -->
       <app-search-box></app-search-box>
-      <app-trend-list></app-trend-list>
-      <app-user-card-list></app-user-card-list>
+      <app-sidenav [sidenavLayout]="'profile'"></app-sidenav>
+    </div>
+    <div class="mid-col col-10">
+      <app-user-main-content></app-user-main-content>
+    </div>
+    <div class="right-col col-1 h-100 position-fixed px-1 mr-1">
+      <app-article-new-button></app-article-new-button>
+      <div class="pt-2">
+        <button class="settings-btn btn btn-outline-primary w-100">
+          <i class="fa fa-cog"></i>
+        </button>
+      </div>
+      <div class="pt-2">
+        <button class="signout-btn btn btn-outline-secondary w-100">
+          <i class="fa fa-sign-out"></i>
+        </button>
+      </div>
+      <!-- <app-trend-list></app-trend-list>
+      <app-user-card-list
+        [userListTitle]="'Popular Authors'"
+        [userCardLayout]="'profile-short'"
+      ></app-user-card-list> -->
     </div>
   </div>
 </div>

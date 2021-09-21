@@ -1,18 +1,3 @@
 .article-new-btn {
   font-size: calc(1.5rem + 0.2vw);
-  width: 60%;
-  &__icon {
-    display: none;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .article-new-btn {
-    &__title {
-      display: none;
-    }
-    &__icon {
-      display: inline;
-    }
-  }
 }

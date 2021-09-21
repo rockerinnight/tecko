@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,11 +6,10 @@ import {
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  // @ViewChild('newBox', { static: true }) newBox!: ElementRef;
-  // layout = 'close;';
+  @Input() sidenavLayout!: string;
   navMenu!: any[];
 
-  constructor(private readonly renderer: Renderer2) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.navMenu = [
@@ -42,22 +35,4 @@ export class SidenavComponent implements OnInit {
       },
     ];
   }
-
-  // openArticleNewModal(): void {
-  //   this.renderer.removeAttribute(this.newBox.nativeElement, 'class');
-  //   this.renderer.addClass(this.newBox.nativeElement, 'd-block');
-  //   this.renderer.addClass(this.newBox.nativeElement, 'open');
-  //   this.layout = 'modal';
-  // }
-
-  // closeArticleNewModal(e: any): void {
-  //   if (e === 'close') {
-  //     this.renderer.addClass(this.newBox.nativeElement, 'out');
-  //     setTimeout(() => {
-  //       this.renderer.removeClass(this.newBox.nativeElement, 'd-block');
-  //       this.renderer.addClass(this.newBox.nativeElement, 'd-none');
-  //     }, 500);
-  //     this.layout = e;
-  //   }
-  // }
 }

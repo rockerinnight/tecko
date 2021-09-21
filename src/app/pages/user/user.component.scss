@@ -1,3 +1,5 @@
+@import "./../../shared/colors.scss";
+
 .container-fluid {
   height: 100vh;
 }
@@ -16,4 +18,18 @@
 .right-col {
   right: 0;
   overflow: auto;
+}
+.settings-btn,
+.signout-btn {
+  font-size: calc(1.5rem + 0.2vw);
+}
+.settings-btn:hover {
+  & i {
+    color: white !important;
+  }
+}
+.signout-btn {
+  &:hover {
+    color: initial;
+  }
 }
