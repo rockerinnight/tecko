@@ -18,7 +18,7 @@ import { ArticleService } from '../article/article.service';
 export class HomeComponent implements OnInit, OnDestroy {
   focusMsg!: string;
   focusOutMsg!: string;
-  userData!: IProfile;
+  profileData!: IProfile;
   offset = 0;
   articleCommentsList!: IArticleComments[];
   private _articleList!: IArticle[];
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.userData = {
+    this.profileData = {
       username: 'jakethedog',
       bio: 'I work at statefarm',
       image: 'https://i.stack.imgur.com/xHWG8.jpg',
@@ -217,7 +217,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         body: 'This article is created with Cypress. See code here: https://github.com/helenanull/cypress-example',
         createdAt: '2021-09-05T16:05:38.151Z',
         updatedAt: '2021-09-05T16:05:38.151Z',
-        tagList: ['test-automation', 'simple', 'cypress'],
+        tagList: [
+          'test-automation',
+          'simple',
+          'cypress',
+          'test-automation',
+          'simple',
+          'cypress',
+        ],
         description: 'https://github.com/helenanull/cypress-example',
         author: {
           username: 'cy364599608',

@@ -1,12 +1,14 @@
 @import "src/app/shared/colors.scss";
 
+.trend-header {
+  word-wrap: break-word;
+}
 .trend-reputation {
   font-size: 0.8rem;
   & .trend__count {
     padding-left: 0.15rem;
   }
 }
-
 .trend-button {
   &:hover {
     .trend-header {
@@ -21,5 +23,10 @@
     outline: 0;
     border-color: $border-hover !important;
     box-shadow: $box-shadow-hover;
+  }
+}
+@media (max-width: 991.98px) {
+  .trend-button {
+    border: 1px solid #dee2e6;
   }
 }

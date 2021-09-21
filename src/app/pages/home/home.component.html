@@ -1,31 +1,30 @@
 <div class="container-fluid">
   <div class="row h-100">
-    <div
-      class="
-        left-col
-        col-xl-3 col-lg-3 col-md-2 col-12
-        h-100
-        pt-3
-        position-fixed
-      "
-    >
+    <div class="left-col col-lg-3 col-md-2 col-12 h-100 pt-3 position-fixed">
       <div class="row h-100 align-content-between ml-auto">
         <div class="col-12">
           <app-search-box></app-search-box>
-          <app-sidenav></app-sidenav>
-          <div class="pt-2">
-            <app-article-new-button></app-article-new-button>
+          <div class="btn border w-100 pt-2 pb-3">
+            <app-sidenav [sidenavLayout]="'home'"></app-sidenav>
+            <div class="pt-2">
+              <app-article-new-button
+                [newBtnLayout]="'text'"
+              ></app-article-new-button>
+            </div>
           </div>
         </div>
         <div class="col-12">
-          <app-user-card [user]="userData" [layout]="'user'"></app-user-card>
+          <app-user-card
+            [profile]="profileData"
+            [userCardLayout]="'user'"
+          ></app-user-card>
         </div>
       </div>
     </div>
     <div
       class="
         mid-col
-        col-xl-5 col-lg-6 col-md-8 col-12
+        col-xl-5 col-lg-6 col-md-7 col-12
         h-100
         pt-3
         position-absolute
@@ -40,19 +39,14 @@
       ></app-article-list>
       <app-article-loading></app-article-loading>
     </div>
-    <div
-      class="
-        right-col
-        col-xl-3 col-lg-3 col-md-2 col-12
-        h-100
-        pt-3
-        position-fixed
-      "
-    >
+    <div class="right-col col-md-3 col-12 h-100 pt-3 position-fixed">
       <div class="row h-100 mr-auto">
         <div class="col-12">
           <app-trend-list></app-trend-list>
-          <app-user-card-list></app-user-card-list>
+          <app-user-card-list
+            [userListTitle]="'Popular Authors'"
+            [userCardLayout]="'profile-long'"
+          ></app-user-card-list>
         </div>
       </div>
     </div>

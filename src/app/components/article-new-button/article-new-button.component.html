@@ -3,7 +3,14 @@
     class="article-new-btn btn btn-primary w-100"
     (click)="navigateToArticleNew()"
   >
-    <i class="article-new-btn__icon fa fa-paper-plane-o"></i>
-    <span class="article-new-btn__title">Tecko</span>
+    <i
+      class="article-new-btn__icon fa fa-paper-plane-o d-inline"
+      [class.d-lg-none]="newBtnLayout === 'text'"
+    ></i>
+    <span
+      class="article-new-btn__title d-none"
+      [class.d-lg-inline]="newBtnLayout === 'text'"
+      >Tecko</span
+    >
   </button>
 </section>

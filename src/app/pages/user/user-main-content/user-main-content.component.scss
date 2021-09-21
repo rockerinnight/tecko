@@ -1,3 +1,5 @@
+@import "./../../../shared/colors.scss";
+
 .user__header {
   & .img-wrapper:first-child {
     & img {
@@ -26,7 +28,12 @@
     transform: translateX(-50%);
   }
 }
-
 .user__main {
   margin-top: 8rem;
+}
+.nav-link {
+  flex: 1;
+  border-radius: $btn-border-radius;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }

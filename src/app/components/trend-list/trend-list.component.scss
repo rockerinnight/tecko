@@ -4,7 +4,13 @@
   &__wrapper {
     cursor: default !important;
   }
-  &__title {
-    font-size: calc(1.3rem + 0.2vw);
+}
+app-trend-item {
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  app-trend-item {
+    width: auto;
+    margin-right: 0.25rem;
   }
 }
